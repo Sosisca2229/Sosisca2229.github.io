@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://projectformymam.pp.ua/images/photo1.jpg" />
   <meta property="og:url" content="https://projectformymam.pp.ua/" />
   
-  <!-- Preload головного фото -->
+  <!-- Preload головного фото для швидшого LCP -->
   <link rel="preload" as="image" href="images/photo1.webp" type="image/webp" />
   
   <!-- Google Tag Manager -->
@@ -25,14 +25,16 @@
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-MR5RRKVV');</script>
+  <!-- End Google Tag Manager -->
   
-  <!-- Google Fonts — ASYNC -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" />
-  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome — ASYNC (не блокує рендер) -->
+  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" /></noscript>
   
   <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
@@ -57,7 +59,7 @@
       </div>
 
       <button class="burger-menu" id="burgerMenu" aria-label="Відкрити меню">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        <i class="fas fa-bars"></i>
       </button>
 
       <nav class="nav-menu" id="navMenu">
@@ -67,20 +69,12 @@
       </nav>
 
       <div class="header-socials">
-        <a href="tel:+380501234567" data-tooltip="+38 050 123 45 67" aria-label="Зателефонувати">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-        </a>
-        <a href="https://t.me/viktoria_grant" target="_blank" data-tooltip="Telegram" aria-label="Telegram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
-        </a>
-        <a href="https://instagram.com/viktoria_grant" target="_blank" data-tooltip="Instagram" aria-label="Instagram">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-10.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
-        </a>
-        <a href="mailto:viktoria@grant.ua" data-tooltip="viktoria@grant.ua" aria-label="Email">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
+        <a href="tel:+380501234567" data-tooltip="+38 050 123 45 67" aria-label="Зателефонувати"><i class="fas fa-phone-alt"></i></a>
+        <a href="https://t.me/viktoria_grant" target="_blank" data-tooltip="Telegram" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://instagram.com/viktoria_grant" target="_blank" data-tooltip="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:viktoria@grant.ua" data-tooltip="viktoria@grant.ua" aria-label="Email"><i class="fas fa-envelope"></i></a>
         <button id="themeToggle" class="theme-toggle" data-tooltip="Тема" aria-label="Перемкнути тему">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="icon-moon"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 01-4.4 2.26 5.4 5.4 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>
+          <i class="fas fa-moon"></i>
         </button>
       </div>
     </div>
@@ -93,7 +87,7 @@
         <div class="hero-left">
           <picture>
             <source srcset="images/photo1.webp" type="image/webp" />
-            <img src="images/photo1.jpg" alt="Вікторія Курашова" width="420" height="560" loading="eager" fetchpriority="high" />
+            <img src="images/photo1.png" alt="Вікторія Курашова" width="420" height="560" loading="eager" fetchpriority="high" />
           </picture>
         </div>
         <div class="hero-right">
@@ -111,46 +105,49 @@
         <div class="about-grid">
           <div class="about-slider">
             <div class="slides" id="slides">
-              <picture><source srcset="images/photo1.webp" type="image/webp" /><img src="images/photo1.jpg" alt="Фото 1" width="600" height="400" loading="lazy" /></picture>
-              <picture><source srcset="images/photo2.webp" type="image/webp" /><img src="images/photo2.jpg" alt="Фото 2" width="600" height="400" loading="lazy" /></picture>
-              <picture><source srcset="images/photo3.webp" type="image/webp" /><img src="images/photo3.jpg" alt="Фото 3" width="600" height="400" loading="lazy" /></picture>
-              <picture><source srcset="images/photo4.webp" type="image/webp" /><img src="images/photo4.jpg" alt="Фото 4" width="600" height="400" loading="lazy" /></picture>
-              <picture><source srcset="images/photo5.webp" type="image/webp" /><img src="images/photo5.jpg" alt="Фото 5" width="600" height="400" loading="lazy" /></picture>
+              <picture>
+                <source srcset="images/photo1.webp" type="image/webp" />
+                <img src="images/photo1.png" alt="Фото 1" width="600" height="400" loading="lazy" />
+              </picture>
+              <picture>
+                <source srcset="images/photo2.webp" type="image/webp" />
+                <img src="images/photo2.png" alt="Фото 2" width="600" height="400" loading="lazy" />
+              </picture>
+              <picture>
+                <source srcset="images/photo3.webp" type="image/webp" />
+                <img src="images/photo3.png" alt="Фото 3" width="600" height="400" loading="lazy" />
+              </picture>
+              <picture>
+                <source srcset="images/photo4.webp" type="image/webp" />
+                <img src="images/photo4.png" alt="Фото 4" width="600" height="400" loading="lazy" />
+              </picture>
+              <picture>
+                <source srcset="images/photo5.webp" type="image/webp" />
+                <img src="images/photo5.png" alt="Фото 5" width="600" height="400" loading="lazy" />
+              </picture>
             </div>
-            <button class="slider-btn prev" id="prevBtn" aria-label="Попереднє фото">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-            </button>
-            <button class="slider-btn next" id="nextBtn" aria-label="Наступне фото">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-            </button>
+            <button class="slider-btn prev" id="prevBtn" aria-label="Попереднє фото"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-btn next" id="nextBtn" aria-label="Наступне фото"><i class="fas fa-chevron-right"></i></button>
           </div>
 
           <div class="about-features">
             <div class="feature-card">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3.5 18.5l6-6 4 4L22 6.92l-1.41-1.41-7.09 7.09-4-4L2 16z"/></svg>
-              </div>
+              <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
               <h3>15 років в економіці</h3>
               <p>Професійний досвід дозволяє дивитися на бізнес через цифри, а не лише через ідею.</p>
             </div>
             <div class="feature-card">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
-              </div>
+              <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
               <h3>Профільна освіта</h3>
               <p>Вища освіта у сфері економіки та підприємництва.</p>
             </div>
             <div class="feature-card">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-              </div>
+              <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
               <h3>Власний бізнес</h3>
               <p>Я знаю, що таке починати з нуля і приймати реальні підприємницькі рішення.</p>
             </div>
             <div class="feature-card">
-              <div class="feature-icon">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-6 15h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V8h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V8h2v2zM7 18H5v-2h2v2zm0-4H5v-2h2v2zm0-4H5V8h2v2z"/></svg>
-              </div>
+              <div class="feature-icon"><i class="fas fa-calculator"></i></div>
               <h3>Сильна фінансова частина</h3>
               <p>Особлива увага — економіці проєкту, розрахункам та обґрунтуванню цифр.</p>
             </div>
@@ -292,7 +289,7 @@
           <div class="faq-item">
             <div class="faq-question">
               <span>Хто має право на отримання гранту?</span>
-              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+              <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
               <p>Це можуть бути майбутні підприємці, діючі ФОП або юридичні особи, які не здійснюють господарську діяльність на тимчасово окупованій території України або на території Росії, не перебувають під санкціями, не мають справ про банкрутство, не притягувалися до кримінальної відповідальності за корупцію та не мають заборгованості перед бюджетом.</p>
@@ -302,7 +299,7 @@
           <div class="faq-item">
             <div class="faq-question">
               <span>Які зобов'язання пов'язані з отриманням гранту?</span>
-              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+              <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
               <p>Умови отримання гранту можуть варіюватися залежно від кожної грантової програми. Зазвичай вимога може полягати в створенні робочих місць, але існують програми, де такі вимоги відсутні.</p>
@@ -312,7 +309,7 @@
           <div class="faq-item">
             <div class="faq-question">
               <span>Умови і випадки надання</span>
-              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+              <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
               <p>Заяву на отримання мікрогранту можуть подавати:</p>
@@ -338,7 +335,7 @@
           <div class="faq-item">
             <div class="faq-question">
               <span>Який розмір грантів може бути наданий?</span>
-              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+              <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
               <p>Розмір грантів може становити від 50 тисяч гривень до 1 мільйона доларів.</p>
@@ -348,7 +345,7 @@
           <div class="faq-item">
             <div class="faq-question">
               <span>Яка інформація потрібна для перевірки вимог грантової програми?</span>
-              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+              <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
               <p>Для перевірки вашої кандидатури на відповідність вимогам програми нам необхідна наступна інформація:</p>
@@ -366,7 +363,7 @@
           <div class="faq-item">
             <div class="faq-question">
               <span>Як почати роботу?</span>
-              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+              <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
               <p>Просто заповніть анкету за кнопкою "Підібрати грант" або напишіть мені в Telegram. Ми проведемо безкоштовну консультацію, щоб визначити ваші потреби та обсяг роботи.</p>
@@ -376,7 +373,7 @@
           <div class="faq-item">
             <div class="faq-question">
               <span>Скільки часу займає написання гранту?</span>
-              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+              <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
               <p>Залежить від складності. Для невеликих грантів (до €20,000) потрібно 3-5 днів. Для великих міжнародних грантів — 2-3 тижні. Завжди працюю з дедлайнами клієнта.</p>
@@ -386,7 +383,7 @@
           <div class="faq-item">
             <div class="faq-question">
               <span>Чи надаєте гарантію виграшу?</span>
-              <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+              <i class="fas fa-chevron-down"></i>
             </div>
             <div class="faq-answer">
               <p>Жоден грантрайтер не може гарантувати виграш, оскільки це залежить від багатьох факторів. Але я гарантую професійну якісну підготовку документів і супровід на всіх етапах.</p>
@@ -565,19 +562,19 @@
         <div class="contacts-info">
           <h2>Контакти</h2>
           <div class="contact-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <i class="fas fa-phone-alt"></i>
             <a href="tel:+380501234567">+38 050 123 45 67</a>
           </div>
           <div class="contact-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+            <i class="fab fa-telegram-plane"></i>
             <a href="https://t.me/viktoria_grant" target="_blank">@viktoria_grant</a>
           </div>
           <div class="contact-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85 0 3.2-.01 3.58-.07 4.85-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.65.07-4.85.07-3.2 0-3.58-.01-4.85-.07-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85 0-3.2.01-3.58.07-4.85.15-3.23 1.66-4.77 4.92-4.92 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.69.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.36 2.62 6.78 6.98 6.98 1.28.06 1.69.07 4.95.07s3.67-.01 4.95-.07c4.35-.2 6.78-2.62 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.62-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 100 12.32 6.16 6.16 0 000-12.32zM12 16a4 4 0 110-8 4 4 0 010 8zm6.41-10.85a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z"/></svg>
+            <i class="fab fa-instagram"></i>
             <a href="https://instagram.com/viktoria_grant" target="_blank">@viktoria_grant</a>
           </div>
           <div class="contact-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <i class="fas fa-envelope"></i>
             <a href="mailto:viktoria@grant.ua">viktoria@grant.ua</a>
           </div>
         </div>
@@ -586,7 +583,7 @@
   </main>
 
   <button id="backToTop" class="back-to-top" aria-label="Вгору">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/></svg>
+    <i class="fas fa-arrow-up"></i>
   </button>
 
   <script src="script.js"></script>

@@ -8,13 +8,13 @@
 body {
   background-color: #fcf7f2;
   color: #4a3f3a;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.6;
   transition: background 0.3s, color 0.3s;
 }
 
 h1, h2, h3 {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
   letter-spacing: -0.02em;
 }
@@ -81,7 +81,9 @@ h2 {
   transition: width 0.1s;
 }
 
-/* ---------- STICKY HEADER ---------- */
+/* =====================================================
+   STICKY HEADER — ЗБІЛЬШЕНО ПРОПОРЦІЙНО
+   ===================================================== */
 header {
   position: fixed;
   top: 0;
@@ -104,26 +106,29 @@ header {
   gap: 16px 32px;
 }
 
-/* ===== LOGO ===== */
+/* ===== LOGO — ЗБІЛЬШЕНО ===== */
 .logo {
   display: flex;
   flex-direction: column;
   line-height: 1.2;
   flex-shrink: 0;
 }
+
 .logo-name {
-  font-size: 2rem;
+  font-size: 2rem;             /* ← збільшено з 1.7rem */
   font-weight: 600;
   color: #b17a6e;
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Playfair Display', serif;
   white-space: nowrap;
 }
+
 .logo-name span {
   color: #d9b8a8;
   font-weight: 300;
 }
+
 .logo-sub {
-  font-size: 1.1rem;
+  font-size: 1.1rem;           /* ← збільшено з 1rem */
   font-weight: 500;
   color: #8a7a72;
   font-family: 'Inter', sans-serif;
@@ -141,6 +146,7 @@ body.dark-mode .logo-sub { color: #a8968e; }
   display: none;
   background: none;
   border: none;
+  font-size: 2rem;              /* ← збільшено з 1.8rem */
   color: #4a3f3a;
   cursor: pointer;
   padding: 5px;
@@ -148,12 +154,12 @@ body.dark-mode .logo-sub { color: #a8968e; }
 }
 .burger-menu:hover { color: #b17a6e; }
 
-/* ===== NAV MENU ===== */
+/* ===== NAV MENU — ЗБІЛЬШЕНО ===== */
 .nav-menu {
   display: flex;
-  gap: 38px;
+  gap: 38px;                    /* ← збільшено з 32px */
   font-weight: 500;
-  font-size: 1.15rem;
+  font-size: 1.15rem;           /* ← збільшено з 1rem */
 }
 .nav-menu a {
   color: #4a3f3a;
@@ -175,35 +181,40 @@ body.dark-mode .logo-sub { color: #a8968e; }
 .nav-menu a:hover { color: #b17a6e; }
 .nav-menu a:hover::after { width: 100%; }
 
-/* ===== HEADER SOCIALS ===== */
+/* ===== HEADER SOCIALS — ЗБІЛЬШЕНО ===== */
 .header-socials {
   display: flex;
-  gap: 20px;
+  gap: 20px;                    /* ← збільшено з 16px */
   align-items: center;
   flex-shrink: 0;
 }
-.header-socials a,
-.header-socials button {
+.header-socials a {
   color: #6b5a52;
+  font-size: 1.5rem;            /* ← збільшено з 1.2rem */
   transition: color 0.2s, transform 0.2s;
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+  display: inline-block;
 }
-.header-socials a:hover,
-.header-socials button:hover {
+.header-socials a:hover {
   color: #b17a6e;
   transform: translateY(-2px);
+}
+
+.contact-item i,
+.header-socials i {
+  transition: transform 0.3s, color 0.3s;
+}
+.contact-item:hover i,
+.header-socials a:hover i {
+  transform: scale(1.2) rotate(-5deg);
+  color: #b17a6e;
 }
 
 .theme-toggle {
   background: none;
   border: none;
+  font-size: 1.5rem;            /* ← збільшено з 1.2rem */
+  color: #6b5a52;
   cursor: pointer;
   transition: color 0.2s, transform 0.2s;
 }
@@ -229,7 +240,6 @@ body.dark-mode .logo-sub { color: #a8968e; }
   pointer-events: none;
   transition: opacity 0.2s, transform 0.2s;
   font-family: 'Inter', sans-serif;
-  z-index: 10;
 }
 .header-socials a[data-tooltip]:hover:before {
   opacity: 1;
@@ -243,21 +253,24 @@ section {
 
 /* ===== HERO ===== */
 #hero {
-  padding-top: 180px;
+  padding-top: 180px;           /* ← збільшено з 160px, бо шапка вища */
   padding-bottom: 60px;
   background: linear-gradient(135deg, #fcf7f2 0%, #f5e6dc 100%);
 }
+
 .hero-grid {
   display: flex;
   align-items: center;
   gap: 50px;
   flex-wrap: wrap;
 }
+
 .hero-left {
   flex: 1 1 300px;
   display: flex;
   justify-content: center;
 }
+
 .hero-left img {
   width: 100%;
   max-width: 420px;
@@ -268,16 +281,20 @@ section {
   transition: transform 0.3s;
   object-fit: cover;
 }
+
 .hero-left img:hover {
   animation-play-state: paused;
   transform: scale(1.02);
 }
+
 @keyframes float {
   0% { transform: translateY(0px) scale(1); }
   50% { transform: translateY(-12px) scale(1.01); }
   100% { transform: translateY(0px) scale(1); }
 }
+
 .hero-right { flex: 1 1 400px; }
+
 .hero-title {
   font-size: 2.4rem;
   color: #7da3d9;
@@ -286,9 +303,10 @@ section {
   background: none;
   -webkit-text-fill-color: #7da3d9;
   text-align: left;
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Playfair Display', serif;
   font-weight: 600;
 }
+
 .hero-desc {
   font-size: 1.15rem;
   max-width: 520px;
@@ -337,6 +355,7 @@ body.dark-mode .btn-primary:hover { background: #4a6fa5; }
   background: #f9f1eb;
   transition: background 0.3s;
 }
+
 .about-grid {
   display: flex;
   gap: 50px;
@@ -344,6 +363,7 @@ body.dark-mode .btn-primary:hover { background: #4a6fa5; }
   align-items: flex-start;
   margin-top: 40px;
 }
+
 .about-slider {
   flex: 1 1 380px;
   position: relative;
@@ -371,14 +391,12 @@ body.dark-mode .btn-primary:hover { background: #4a6fa5; }
   width: 44px;
   height: 44px;
   border-radius: 50%;
+  font-size: 1.3rem;
   color: #4a3f3a;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
   backdrop-filter: blur(4px);
   box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .slider-btn:hover {
   background: #f5e4db;
@@ -413,6 +431,7 @@ body.dark-mode .btn-primary:hover { background: #4a6fa5; }
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.3rem;
   margin-bottom: 14px;
 }
 .feature-card h3 {
@@ -438,6 +457,7 @@ body.dark-mode .feature-card p { color: #d4c8c0; }
   background: #fcf7f2;
   transition: background 0.3s;
 }
+
 .filter-buttons {
   display: flex;
   justify-content: center;
@@ -598,8 +618,8 @@ body.dark-mode .badge-featured {
   transition: color 0.3s;
 }
 .faq-question:hover { color: #4a6fa5; }
-.faq-icon { transition: transform 0.3s; color: #b17a6e; }
-.faq-item.open .faq-icon { transform: rotate(180deg); }
+.faq-question i { transition: transform 0.3s; color: #b17a6e; }
+.faq-item.open .faq-question i { transform: rotate(180deg); }
 .faq-answer {
   max-height: 0;
   overflow: hidden;
@@ -753,7 +773,7 @@ body.dark-mode .anketa-disclaimer { color: #8a7a72; }
   margin-bottom: 18px;
   font-size: 1.05rem;
 }
-.contact-item svg { color: #4a6fa5; flex-shrink: 0; }
+.contact-item i { color: #4a6fa5; width: 28px; font-size: 1.3rem; }
 .contact-item a {
   color: #3f322b;
   text-decoration: none;
@@ -764,7 +784,7 @@ body.dark-mode .anketa-disclaimer { color: #8a7a72; }
 body.dark-mode #contacts { background: #1f1815; }
 body.dark-mode .contact-item a { color: #d4c8c0; }
 body.dark-mode .contact-item a:hover { color: #7da3d9; }
-body.dark-mode .contact-item svg { color: #7da3d9; }
+body.dark-mode .contact-item i { color: #7da3d9; }
 
 /* ---------- BACK TO TOP ---------- */
 .back-to-top {
@@ -777,15 +797,13 @@ body.dark-mode .contact-item svg { color: #7da3d9; }
   background: #4a6fa5;
   color: #ffffff;
   border: none;
+  font-size: 1.3rem;
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s;
   box-shadow: 0 4px 15px rgba(74, 111, 165, 0.3);
   z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .back-to-top.show { opacity: 1; visibility: visible; }
 .back-to-top:hover { background: #3d5d8f; transform: translateY(-3px); }
@@ -814,9 +832,9 @@ body.dark-mode header {
 body.dark-mode .nav-menu a { color: #f0e6e0; }
 body.dark-mode .nav-menu a:hover { color: #dac2b6; }
 body.dark-mode .header-socials a,
-body.dark-mode .header-socials button { color: #f0e6e0; }
+body.dark-mode .theme-toggle { color: #f0e6e0; }
 body.dark-mode .header-socials a:hover,
-body.dark-mode .header-socials button:hover { color: #dac2b6; }
+body.dark-mode .theme-toggle:hover { color: #dac2b6; }
 body.dark-mode .slider-btn {
   background: rgba(26, 20, 18, 0.8);
   color: #f0e6e0;
@@ -829,23 +847,6 @@ body.dark-mode h2 {
   background-clip: text;
 }
 body.dark-mode .section-subtitle { color: #d4c8c0; }
-body.dark-mode .burger-menu { color: #f0e6e0; }
-body.dark-mode .burger-menu:hover { color: #dac2b6; }
-
-/* ---------- ПІДТРИМКА <picture> ---------- */
-.hero-left picture,
-.slides picture {
-  display: contents;
-}
-.hero-left picture img,
-.slides picture img {
-  display: block;
-}
-
-/* ---------- ПОКРАЩЕННЯ ШВИДКОСТІ ---------- */
-img {
-  content-visibility: auto;
-}
 
 /* ---------- АДАПТИВ ---------- */
 @media (max-width: 992px) {
@@ -854,6 +855,7 @@ img {
   .logo-name { font-size: 1.7rem; }
   .logo-sub { font-size: 1rem; }
   .header-socials { gap: 16px; }
+  .header-socials a, .theme-toggle { font-size: 1.3rem; }
 }
 
 @media (max-width: 768px) {
@@ -873,6 +875,7 @@ img {
   .burger-menu {
     display: block;
     order: 3;
+    font-size: 1.7rem;
   }
   
   .nav-menu {
@@ -892,6 +895,7 @@ img {
     margin-left: auto;
     gap: 14px;
   }
+  .header-socials a, .theme-toggle { font-size: 1.25rem; }
   
   .about-slider { flex: 1 1 100%; }
   .slides img { height: 280px; }
@@ -904,4 +908,31 @@ img {
   .logo-sub { font-size: 0.85rem; letter-spacing: 1.5px; margin-top: 4px; }
   
   #hero { padding-top: 140px; }
+}
+
+/* ===== ПІДТРИМКА <picture> (WebP + fallback) ===== */
+.hero-left picture,
+.slides picture {
+  display: contents;
+}
+
+.hero-left picture img,
+.slides picture img {
+  display: block;
+}
+
+/* ===== ПОКРАЩЕННЯ ШВИДКОСТІ ===== */
+/* Запобігаємо "стрибкам" при завантаженні */
+img {
+  content-visibility: auto;
+}
+
+/* Плавне завантаження шрифтів */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-display: swap;
 }
