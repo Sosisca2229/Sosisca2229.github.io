@@ -909,3 +909,30 @@ body.dark-mode .section-subtitle { color: #d4c8c0; }
   
   #hero { padding-top: 140px; }
 }
+
+/* ===== ПІДТРИМКА <picture> (WebP + fallback) ===== */
+.hero-left picture,
+.slides picture {
+  display: contents;
+}
+
+.hero-left picture img,
+.slides picture img {
+  display: block;
+}
+
+/* ===== ПОКРАЩЕННЯ ШВИДКОСТІ ===== */
+/* Запобігаємо "стрибкам" при завантаженні */
+img {
+  content-visibility: auto;
+}
+
+/* Плавне завантаження шрифтів */
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-display: swap;
+}
