@@ -45,10 +45,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
       e.preventDefault();
       const headerHeight = document.querySelector('header').offsetHeight;
       const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     }
   });
 });
@@ -85,25 +82,38 @@ if (prevBtn && nextBtn) {
   });
 }
 
-// ===== АНІМАЦІЯ ПОЯВИ =====
-const fadeElements = document.querySelectorAll('.work-card, .feature-card, .hero-right, .faq-list, .anketa-block, .contacts-info');
+// ===== SWIPE ДЛЯ СЛАЙДЕРА =====
+const sliderEl = document.querySelector('.about-slider');
+let touchStartX = 0;
+let touchEndX = 0;
 
-function checkVisibility() {
-  const windowHeight = window.innerHeight;
-  fadeElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < windowHeight - 80 && rect.bottom > 0) {
-      el.classList.add('visible');
-    }
-  });
+if (sliderEl) {
+  sliderEl.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  sliderEl.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
 }
 
-fadeElements.forEach(el => {
-  el.classList.add('fade-up');
-});
+function handleSwipe() {
+  const swipeThreshold = 50;
+  const diff = touchStartX - touchEndX;
 
-window.addEventListener('load', checkVisibility);
-window.addEventListener('scroll', checkVisibility);
+  if (Math.abs(diff) < swipeThreshold) return;
+
+  if (diff > 0) {
+    clearInterval(autoSlide);
+    updateSlide(currentSlide + 1);
+    autoSlide = setInterval(() => updateSlide(currentSlide + 1), 4000);
+  } else {
+    clearInterval(autoSlide);
+    updateSlide(currentSlide - 1);
+    autoSlide = setInterval(() => updateSlide(currentSlide + 1), 4000);
+  }
+}
 
 // ===== ФІЛЬТРАЦІЯ ПОСЛУГ =====
 document.querySelectorAll('.filter-btn').forEach(btn => {
@@ -126,13 +136,16 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 const themeToggle = document.getElementById('themeToggle');
 let darkMode = localStorage.getItem('darkMode') === 'true';
 
+const iconMoon = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 01-4.4 2.26 5.4 5.4 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/></svg>';
+const iconSun = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zM2 13h2a1 1 0 000-2H2a1 1 0 000 2zm18 0h2a1 1 0 000-2h-2a1 1 0 000 2zM11 2v2a1 1 0 002 0V2a1 1 0 00-2 0zm0 18v2a1 1 0 002 0v-2a1 1 0 00-2 0zM5.99 4.58a1 1 0 00-1.41 1.41l1.06 1.06a1 1 0 001.41-1.41L5.99 4.58zm12.37 12.37a1 1 0 00-1.41 1.41l1.06 1.06a1 1 0 001.41-1.41l-1.06-1.06zm1.06-12.37l-1.06 1.06a1 1 0 001.41 1.41l1.06-1.06a1 1 0 00-1.41-1.41zM7.05 18.36l-1.06 1.06a1 1 0 001.41 1.41l1.06-1.06a1 1 0 00-1.41-1.41z"/></svg>';
+
 function setTheme(isDark) {
   if (isDark) {
     document.body.classList.add('dark-mode');
-    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+    themeToggle.innerHTML = iconSun;
   } else {
     document.body.classList.remove('dark-mode');
-    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+    themeToggle.innerHTML = iconMoon;
   }
   localStorage.setItem('darkMode', isDark);
   darkMode = isDark;
@@ -168,18 +181,14 @@ function gtmEvent(eventName, eventData = {}) {
   }
 }
 
-// Трекінг кліків на кнопки послуг
 document.querySelectorAll('.work-card .btn-primary').forEach(btn => {
   btn.addEventListener('click', function() {
     const card = this.closest('.work-card');
     const serviceName = card?.querySelector('h3')?.textContent || 'Unknown';
-    gtmEvent('service_click', {
-      service_name: serviceName
-    });
+    gtmEvent('service_click', { service_name: serviceName });
   });
 });
 
-// Трекінг кліків на соцмережі
 document.querySelectorAll('.header-socials a, .contact-item a').forEach(link => {
   link.addEventListener('click', function() {
     const href = this.getAttribute('href') || '';
@@ -188,12 +197,10 @@ document.querySelectorAll('.header-socials a, .contact-item a').forEach(link => 
     else if (href.includes('t.me')) type = 'telegram';
     else if (href.includes('instagram')) type = 'instagram';
     else if (href.startsWith('mailto:')) type = 'email';
-    
     gtmEvent('contact_click', { contact_type: type });
   });
 });
 
-// Трекінг кліку "Підібрати грант"
 document.querySelector('.hero-right .btn-primary')?.addEventListener('click', function() {
   gtmEvent('cta_click', { button: 'pidibraty_grant' });
 });
@@ -206,7 +213,6 @@ const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzKcldPw_DTv4
 document.getElementById('anketaForm')?.addEventListener('submit', async function(e) {
   e.preventDefault();
   
-  // ===== ВАЛІДАЦІЯ =====
   let isValid = true;
   let firstError = null;
   
@@ -260,7 +266,6 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
     return;
   }
   
-  // ===== ЗБІР ДАНИХ =====
   const formData = new FormData(this);
   const data = {};
   
@@ -288,7 +293,6 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
   const expensesOther = formData.get('expenses_other');
   data['Витрати'] = expenses.join(', ') + (expensesOther ? ` (${expensesOther})` : '');
   
-  // ===== ФОРМУВАННЯ ПОВІДОМЛЕННЯ =====
   let text = '📩 НОВА ЗАЯВКА НА СПІВПРАЦЮ\n\n';
   text += `👤 Ім'я: ${data['Ім\'я']}\n`;
   text += `📞 Телефон: ${data['Телефон']}\n`;
@@ -305,19 +309,14 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
   text += `🛠 Послуга: ${data['Послуга']}\n\n`;
   text += `📝 Про бізнес:\n${data['Про бізнес']}`;
   
-  // ===== ВІДПРАВКА В TELEGRAM =====
   try {
     const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        chat_id: CHAT_ID, 
-        text: text
-      })
+      body: JSON.stringify({ chat_id: CHAT_ID, text: text })
     });
     
     if (response.ok) {
-      // ===== ВІДПРАВКА В GOOGLE SHEETS =====
       if (GOOGLE_SHEETS_URL) {
         try {
           await fetch(GOOGLE_SHEETS_URL, {
@@ -331,7 +330,6 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
         }
       }
       
-      // GTM: успішна відправка форми
       gtmEvent('form_submit_success', { form_name: 'anketa' });
       
       alert('✅ Дякую! Ваша заявка надіслана. Я зв\'яжуся з вами найближчим часом!');
