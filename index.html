@@ -5,19 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Вікторія Курашова · Грантрайтер · Портфоліо</title>
   
-  <!-- SEO Meta -->
   <meta name="description" content="Грантрайтер Вікторія Курашова. Допомога в отриманні грантів від бізнес-ідеї до перемоги." />
   <meta name="keywords" content="грантрайтер, написання грантів, портфоліо, гранти" />
   
-  <!-- Open Graph -->
   <meta property="og:title" content="Вікторія Курашова · Грантрайтер" />
   <meta property="og:description" content="Допомога в отриманні грантів від бізнес-ідеї до перемоги." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://projectformymam.pp.ua/images/photo1.jpg" />
-  <meta property="og:url" content="https://projectformymam.pp.ua/" />
-  
-  <!-- Preload головного фото для швидшого LCP -->
-  <link rel="preload" as="image" href="images/photo1.webp" type="image/webp" />
   
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -27,16 +20,11 @@
   })(window,document,'script','dataLayer','GTM-MR5RRKVV');</script>
   <!-- End Google Tag Manager -->
   
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   
-  <!-- Font Awesome — ASYNC (не блокує рендер) -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" /></noscript>
-  
-  <!-- CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -85,10 +73,7 @@
     <section id="hero">
       <div class="container hero-grid">
         <div class="hero-left">
-          <picture>
-            <source srcset="images/photo1.webp" type="image/webp" />
-            <img src="images/photo1.png" alt="Вікторія Курашова" width="420" height="560" loading="eager" fetchpriority="high" />
-          </picture>
+          <img src="images/photo1.png" alt="Вікторія Курашова" loading="eager" />
         </div>
         <div class="hero-right">
           <h2 class="hero-title">Від бізнес-ідеї до грантової заявки</h2>
@@ -105,26 +90,11 @@
         <div class="about-grid">
           <div class="about-slider">
             <div class="slides" id="slides">
-              <picture>
-                <source srcset="images/photo1.webp" type="image/webp" />
-                <img src="images/photo1.png" alt="Фото 1" width="600" height="400" loading="lazy" />
-              </picture>
-              <picture>
-                <source srcset="images/photo2.webp" type="image/webp" />
-                <img src="images/photo2.png" alt="Фото 2" width="600" height="400" loading="lazy" />
-              </picture>
-              <picture>
-                <source srcset="images/photo3.webp" type="image/webp" />
-                <img src="images/photo3.png" alt="Фото 3" width="600" height="400" loading="lazy" />
-              </picture>
-              <picture>
-                <source srcset="images/photo4.webp" type="image/webp" />
-                <img src="images/photo4.png" alt="Фото 4" width="600" height="400" loading="lazy" />
-              </picture>
-              <picture>
-                <source srcset="images/photo5.webp" type="image/webp" />
-                <img src="images/photo5.png" alt="Фото 5" width="600" height="400" loading="lazy" />
-              </picture>
+              <img src="images/photo1.png" alt="Фото 1" loading="lazy" />
+              <img src="images/photo2.png" alt="Фото 2" loading="lazy" />
+              <img src="images/photo3.png" alt="Фото 3" loading="lazy" />
+              <img src="images/photo4.png" alt="Фото 4" loading="lazy" />
+              <img src="images/photo5.png" alt="Фото 5" loading="lazy" />
             </div>
             <button class="slider-btn prev" id="prevBtn" aria-label="Попереднє фото"><i class="fas fa-chevron-left"></i></button>
             <button class="slider-btn next" id="nextBtn" aria-label="Наступне фото"><i class="fas fa-chevron-right"></i></button>
