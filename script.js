@@ -158,10 +158,50 @@ document.querySelectorAll('.faq-question').forEach(question => {
   });
 });
 
+// ===== GOOGLE TAG MANAGER — EVENT TRACKING =====
+function gtmEvent(eventName, eventData = {}) {
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: eventName,
+      ...eventData
+    });
+  }
+}
+
+// Трекінг кліків на кнопки послуг
+document.querySelectorAll('.work-card .btn-primary').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const card = this.closest('.work-card');
+    const serviceName = card?.querySelector('h3')?.textContent || 'Unknown';
+    gtmEvent('service_click', {
+      service_name: serviceName
+    });
+  });
+});
+
+// Трекінг кліків на соцмережі
+document.querySelectorAll('.header-socials a, .contact-item a').forEach(link => {
+  link.addEventListener('click', function() {
+    const href = this.getAttribute('href') || '';
+    let type = 'other';
+    if (href.startsWith('tel:')) type = 'phone';
+    else if (href.includes('t.me')) type = 'telegram';
+    else if (href.includes('instagram')) type = 'instagram';
+    else if (href.startsWith('mailto:')) type = 'email';
+    
+    gtmEvent('contact_click', { contact_type: type });
+  });
+});
+
+// Трекінг кліку "Підібрати грант"
+document.querySelector('.hero-right .btn-primary')?.addEventListener('click', function() {
+  gtmEvent('cta_click', { button: 'pidibraty_grant' });
+});
+
 // ===== TELEGRAM BOT + GOOGLE SHEETS =====
 const BOT_TOKEN = '8637962406:AAFVmEMXur_eGh8aXuMxkLsxPQ-5R3maiqE';
 const CHAT_ID = '6469987816';
-const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzKcldPw_DTv4sIsyt1pxVsXXycrXsbmOgwcvWT27sLphY28XXgXMr8r2EqRMH4Z2MG/exec';; // 👈 Сюди вставите URL Google Apps Script (інструкція нижче)
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzKcldPw_DTv4sIsyt1pxVsXXycrXsbmOgwcvWT27sLphY28XXgXMr8r2EqRMH4Z2MG/exec';
 
 document.getElementById('anketaForm')?.addEventListener('submit', async function(e) {
   e.preventDefault();
@@ -170,10 +210,8 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
   let isValid = true;
   let firstError = null;
   
-  // Очищаємо попередні помилки
   this.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
   
-  // Перевірка обов'язкових текстових полів
   const requiredTexts = this.querySelectorAll('input[required], textarea[required]');
   requiredTexts.forEach(input => {
     if (!input.value.trim()) {
@@ -183,7 +221,6 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
     }
   });
   
-  // Перевірка обов'язкових radio-груп
   const requiredRadios = ['stage', 'status', 'age', 'region', 'amount', 'service'];
   requiredRadios.forEach(name => {
     const checked = this.querySelector(`input[name="${name}"]:checked`);
@@ -197,7 +234,6 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
     }
   });
   
-  // Перевірка сектору (хоча б один checkbox)
   const sectorChecked = this.querySelectorAll('input[name="sector[]"]:checked').length;
   if (sectorChecked === 0) {
     const group = this.querySelector('input[name="sector[]"]')?.closest('.checkbox-group');
@@ -208,7 +244,6 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
     isValid = false;
   }
   
-  // Перевірка витрат (хоча б один checkbox)
   const expensesChecked = this.querySelectorAll('input[name="expenses[]"]:checked').length;
   if (expensesChecked === 0) {
     const group = this.querySelector('input[name="expenses[]"]')?.closest('.checkbox-group');
@@ -229,7 +264,6 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
   const formData = new FormData(this);
   const data = {};
   
-  // Текстові поля
   data['Ім\'я'] = formData.get('name');
   data['Телефон'] = formData.get('phone');
   data['Email'] = formData.get('email') || '—';
@@ -242,7 +276,6 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
   data['Сума'] = formData.get('amount');
   data['Послуга'] = formData.get('service');
   
-  // Checkbox-групи
   const special = formData.getAll('special[]').filter(v => v !== 'Нічого з переліченого');
   const specialOther = formData.get('special_other');
   data['Особливий статус'] = special.length ? special.join(', ') + (specialOther ? ` (${specialOther})` : '') : 'Нічого з переліченого';
@@ -284,7 +317,7 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
     });
     
     if (response.ok) {
-      // ===== ВІДПРАВКА В GOOGLE SHEETS (якщо URL налаштовано) =====
+      // ===== ВІДПРАВКА В GOOGLE SHEETS =====
       if (GOOGLE_SHEETS_URL) {
         try {
           await fetch(GOOGLE_SHEETS_URL, {
@@ -297,6 +330,9 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
           console.warn('Google Sheets помилка:', err);
         }
       }
+      
+      // GTM: успішна відправка форми
+      gtmEvent('form_submit_success', { form_name: 'anketa' });
       
       alert('✅ Дякую! Ваша заявка надіслана. Я зв\'яжуся з вами найближчим часом!');
       this.reset();

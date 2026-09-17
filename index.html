@@ -5,42 +5,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Вікторія Курашова · Грантрайтер · Портфоліо</title>
   
-  <!-- SEO Meta -->
   <meta name="description" content="Грантрайтер Вікторія Курашова. Допомога в отриманні грантів від бізнес-ідеї до перемоги." />
   <meta name="keywords" content="грантрайтер, написання грантів, портфоліо, гранти" />
   
-  <!-- Open Graph -->
   <meta property="og:title" content="Вікторія Курашова · Грантрайтер" />
   <meta property="og:description" content="Допомога в отриманні грантів від бізнес-ідеї до перемоги." />
   <meta property="og:type" content="website" />
   
-  <!-- Google Fonts -->
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MR5RRKVV');</script>
+  <!-- End Google Tag Manager -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   
-  <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ===== PRELOADER ===== -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MR5RRKVV"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
   <div id="preloader">
     <div class="loader"></div>
   </div>
 
-  <!-- ===== PROGRESS BAR ===== -->
   <div class="progress-bar" id="progressBar"></div>
 
-  <!-- ===== HEADER (Sticky) ===== -->
+  <!-- ===== HEADER ===== -->
   <header>
     <div class="container header-inner">
-      <div class="logo">Вікторія <span>Курашова</span> Грантрайтер </div>
+      <div class="logo">
+        <span class="logo-name">Вікторія <span>Курашова</span></span>
+        <span class="logo-sub">Грантрайтер</span>
+      </div>
 
-      <button class="burger-menu" id="burgerMenu">
+      <button class="burger-menu" id="burgerMenu" aria-label="Відкрити меню">
         <i class="fas fa-bars"></i>
       </button>
 
@@ -51,450 +57,505 @@
       </nav>
 
       <div class="header-socials">
-        <a href="https://t.me/life_and_woman" target="_blank" data-tooltip="Telegram"><i class="fab fa-telegram-plane"></i></a>
-        <a href="https://instagram.com/time_to_live_2026" target="_blank" data-tooltip="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="mailto:viktorija060488@icloud.com" data-tooltip="viktorija060488@icloud.com"><i class="fas fa-envelope"></i></a>
-        <button id="themeToggle" class="theme-toggle" data-tooltip="Тема">
+        <a href="tel:+380501234567" data-tooltip="+38 050 123 45 67" aria-label="Зателефонувати"><i class="fas fa-phone-alt"></i></a>
+        <a href="https://t.me/viktoria_grant" target="_blank" data-tooltip="Telegram" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://instagram.com/viktoria_grant" target="_blank" data-tooltip="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="mailto:viktoria@grant.ua" data-tooltip="viktoria@grant.ua" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <button id="themeToggle" class="theme-toggle" data-tooltip="Тема" aria-label="Перемкнути тему">
           <i class="fas fa-moon"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <section id="hero">
-    <div class="container hero-grid">
-      <div class="hero-left">
-        <img src="images/photo1.jpg" alt="Вікторія Курашова" loading="lazy" />
-      </div>
-      <div class="hero-right">
-        <h1 class="hero-name">Вікторія Курашова</h1>
-        <p class="hero-prof">Грантрайтер</p>
-        <h2 class="hero-title">Від бізнес-ідеї до грантової заявки</h2>
-        <p class="hero-desc">Перетворюю бізнес-ідею на економічно обґрунтований проєкт для залучення грантового фінансування</p>
-        <a href="#anketa" class="btn-primary">Підібрати грант</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT ===== -->
-  <section id="about">
-    <div class="container">
-      <h2>Про мене</h2>
-      <div class="about-grid">
-        <div class="about-slider">
-          <div class="slides" id="slides">
-            <img src="images/photo1.jpg" alt="Фото 1" loading="lazy" />
-            <img src="images/photo2.jpg" alt="Фото 2" loading="lazy" />
-            <img src="images/photo3.jpg" alt="Фото 3" loading="lazy" />
-            <img src="images/photo4.jpg" alt="Фото 4" loading="lazy" />
-            <img src="images/photo5.jpg" alt="Фото 5" loading="lazy" />
-          </div>
-          <button class="slider-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-          <button class="slider-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+  <main>
+    <!-- ===== HERO ===== -->
+    <section id="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <img src="images/photo1.jpg" alt="Вікторія Курашова" loading="eager" />
         </div>
-
-        <div class="about-features">
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-            <h3>15 років в економіці</h3>
-            <p>Професійний досвід дозволяє дивитися на бізнес через цифри, а не лише через ідею.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
-            <h3>Профільна освіта</h3>
-            <p>Вища освіта у сфері економіки та підприємництва.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
-            <h3>Власний бізнес</h3>
-            <p>Я знаю, що таке починати з нуля і приймати реальні підприємницькі рішення.</p>
-          </div>
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-calculator"></i></div>
-            <h3>Сильна фінансова частина</h3>
-            <p>Особлива увага — економіці проєкту, розрахункам та обґрунтуванню цифр.</p>
-          </div>
+        <div class="hero-right">
+          <h2 class="hero-title">Від бізнес-ідеї до грантової заявки</h2>
+          <p class="hero-desc">Перетворюю бізнес-ідею на економічно обґрунтований проєкт для залучення грантового фінансування</p>
+          <a href="#anketa" class="btn-primary">Підібрати грант</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== WORKS (Послуги) ===== -->
-  <section id="works">
-    <div class="container">
-      <h2>Послуги</h2>
-      <p class="section-subtitle">Від консультації до повного грантового супроводу</p>
-      <p class="section-subtitle">Ви можете обрати окрему послугу або делегувати весь процес — від першого аналізу до отримання рішення.</p>
-      
-      <!-- Фільтри -->
-      <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="all">Всі</button>
-        <button class="filter-btn" data-filter="consult">Консультації</button>
-        <button class="filter-btn" data-filter="plan">Бізнес-плани</button>
-      </div>
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+      <div class="container">
+        <h2>Про мене</h2>
+        <div class="about-grid">
+          <div class="about-slider">
+            <div class="slides" id="slides">
+              <img src="images/photo1.jpg" alt="Фото 1" loading="lazy" />
+              <img src="images/photo2.jpg" alt="Фото 2" loading="lazy" />
+              <img src="images/photo3.jpg" alt="Фото 3" loading="lazy" />
+              <img src="images/photo4.jpg" alt="Фото 4" loading="lazy" />
+              <img src="images/photo5.jpg" alt="Фото 5" loading="lazy" />
+            </div>
+            <button class="slider-btn prev" id="prevBtn" aria-label="Попереднє фото"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-btn next" id="nextBtn" aria-label="Наступне фото"><i class="fas fa-chevron-right"></i></button>
+          </div>
 
-      <div class="works-grid">
-        <div class="work-card" data-category="consult">
-          <h3>Експрес-консультація</h3>
-          <p class="work-price">500 грн / 30 хвилин</p>
-          <ul class="work-list">
-            <li>Для тих, хто хоче швидко зрозуміти, чи підходить бізнес-ідея або обрана грантова програма</li>
-            <li>На консультації розберемо вашу ситуацію та бізнес-ідею</li>
-            <li>Розглянемо основні вимоги грантової програми</li>
-            <li>Визначимо можливі ризики, обговоримо подальші кроки</li>
-          </ul>
-          <p class="work-result"><strong>Результат:</strong> чітке розуміння, що потрібно підготувати</p>
-          <a href="#anketa" class="btn-primary btn-small">Записатися на консультацію</a>
-        </div>
-
-        <div class="work-card" data-category="consult">
-          <h3>Поглиблена консультація</h3>
-          <p class="work-price">1500 грн / 60 хвилин</p>
-          <ul class="work-list">
-            <li>Для тих, кому потрібно детально оцінити бізнес-проєкт</li>
-            <li>Розберемо потенційну суму гранту</li>
-            <li>Заплановані витрати та бюджет</li>
-            <li>Підберемо підходящі грантові програми</li>
-          </ul>
-          <p class="work-result"><strong>Результат:</strong> готовий бізнес-план з розрахунками</p>
-          <a href="#anketa" class="btn-primary btn-small">Записатися на консультацію</a>
-        </div>
-
-        <div class="work-card" data-category="plan">
-          <h3>Розробка бізнес-плану</h3>
-          <p class="work-price">3400 грн</p>
-          <ul class="work-list">
-            <li>Структурування бізнес-ідеї та проєкту</li>
-            <li>Розробка бізнес-плану</li>
-            <li>Фінансові розрахунки доходів і витрат</li>
-            <li>Формування бюджету проєкту</li>
-            <li>Економічне обґрунтування</li>
-            <li>Допомога у визначенні оптимальної суми</li>
-            <li>Підбір KPI/бізнес-показників</li>
-            <li>Визначення строку реалізації та періоду моніторингу</li>
-          </ul>
-          <p class="work-result"><strong>Результат:</strong> готовий бізнес-план</p>
-          <a href="#anketa" class="btn-primary btn-small">Замовити бізнес-план</a>
+          <div class="about-features">
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+              <h3>15 років в економіці</h3>
+              <p>Професійний досвід дозволяє дивитися на бізнес через цифри, а не лише через ідею.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
+              <h3>Профільна освіта</h3>
+              <p>Вища освіта у сфері економіки та підприємництва.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
+              <h3>Власний бізнес</h3>
+              <p>Я знаю, що таке починати з нуля і приймати реальні підприємницькі рішення.</p>
+            </div>
+            <div class="feature-card">
+              <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+              <h3>Сильна фінансова частина</h3>
+              <p>Особлива увага — економіці проєкту, розрахункам та обґрунтуванню цифр.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== FAQ ===== -->
-  <section id="faq">
-    <div class="container">
-      <h2>Часті запитання</h2>
-      <div class="faq-list">
+    <!-- ===== WORKS ===== -->
+    <section id="works">
+      <div class="container">
+        <h2>Послуги</h2>
+        <p class="section-subtitle">Від консультації до повного грантового супроводу</p>
+        <p class="section-subtitle">Ви можете обрати окрему послугу або делегувати весь процес — від першого аналізу до отримання рішення.</p>
         
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Хто має право на отримання гранту?</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Це можуть бути майбутні підприємці, діючі ФОП або юридичні особи, які не здійснюють господарську діяльність на тимчасово окупованій території України або на території Росії, не перебувають під санкціями, не мають справ про банкрутство, не притягувалися до кримінальної відповідальності за корупцію та не мають заборгованості перед бюджетом.</p>
-          </div>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">Всі</button>
+          <button class="filter-btn" data-filter="consult">Консультації</button>
+          <button class="filter-btn" data-filter="plan">Бізнес-плани</button>
+          <button class="filter-btn" data-filter="support">Супровід</button>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Які зобов'язання пов'язані з отриманням гранту?</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Умови отримання гранту можуть варіюватися залежно від кожної грантової програми. Зазвичай вимога може полягати в створенні робочих місць, але існують програми, де такі вимоги відсутні.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Умови і випадки надання</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Заяву на отримання мікрогранту можуть подавати:</p>
-            <ul>
-              <li>громадяни України;</li>
-              <li>юридичні особи, засновниками яких є тільки фізичні особи — громадяни України;</li>
-              <li>фізичні особи, що планують відкрити ФОП, дійсні ФОП та юридичні особи:</li>
+        <div class="works-grid">
+          
+          <div class="work-card" data-category="consult">
+            <h3>Експрес-консультація</h3>
+            <p class="work-price">500 грн | 30 хвилин</p>
+            <p class="work-intro">Для тих, хто хоче швидко зрозуміти, чи підходить бізнес-ідея або обрана грантова програма.</p>
+            <p class="work-label">На консультації:</p>
+            <ul class="work-list">
+              <li>розберемо вашу ситуацію та бізнес-ідею;</li>
+              <li>розглянемо основні вимоги грантової програми;</li>
+              <li>визначимо можливі ризики;</li>
+              <li>обговоримо подальші кроки.</li>
             </ul>
-            <ul>
-              <li>які не перебувають і не працюють на тимчасово окупованій території України;</li>
-              <li>які не працюють на території росії;</li>
-              <li>які не перебувають під санкціями;</li>
-              <li>щодо яких не порушували справи про банкрутство;</li>
-              <li>які не притягувались до кримінальної відповідальності за корупцію;</li>
-              <li>які не мають заборгованості перед бюджетом;</li>
-              <li>які не виробляють та/або не реалізують зброю, алкогольні напої, тютюнові вироби та не займаються обміном валют;</li>
-              <li>які не є кредитними, страховими організаціями, інвестиційними, недержавними пенсійними фондами, професійними учасниками ринку цінних паперів, ломбардами.</li>
+            <p class="work-result"><strong>Результат:</strong> ви розумієте, чи варто рухатися далі та з чого почати підготовку.</p>
+            <a href="#anketa" class="btn-primary btn-small">Записатися на консультацію</a>
+          </div>
+
+          <div class="work-card" data-category="consult">
+            <h3>Поглиблена консультація</h3>
+            <p class="work-price">1 500 грн | 90 хвилин</p>
+            <p class="work-intro">Для тих, кому потрібно детально оцінити бізнес-проєкт перед підготовкою грантової заявки.</p>
+            <p class="work-label">Розглянемо:</p>
+            <ul class="work-list">
+              <li>бізнес-ідею та її відповідність вимогам програми;</li>
+              <li>потенційну суму гранту;</li>
+              <li>заплановані витрати та бюджет;</li>
+              <li>слабкі місця проєкту;</li>
+              <li>порядок підготовки та подання заявки.</li>
             </ul>
-            <p>Отримувачем може бути фізична особа, яка має намір розпочати підприємницьку діяльність і бере на себе зобов'язання зареєструватися фізичною особою — підприємцем або створити юридичну особу у випадку отримання позитивного рішення про надання мікрогранту.</p>
+            <p class="work-result"><strong>Результат:</strong> чітке розуміння, що потрібно підготувати, які питання доопрацювати та на що звернути особливу увагу.</p>
+            <a href="#anketa" class="btn-primary btn-small">Записатися на консультацію</a>
           </div>
-        </div>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Який розмір грантів може бути наданий?</span>
-            <i class="fas fa-chevron-down"></i>
+          <div class="work-card featured" data-category="plan">
+            <span class="badge-featured">⭐ Популярна послуга</span>
+            <h3>Розробка бізнес-плану</h3>
+            <p class="work-price">1,5% від суми гранту, на яку планується подання заявки</p>
+            <p class="work-intro">Підготовка бізнес-плану та фінансової моделі відповідно до вимог обраної грантової програми.</p>
+            <p class="work-label">Що входить:</p>
+            <ul class="work-list">
+              <li>структурування бізнес-ідеї та проєкту;</li>
+              <li>розробка бізнес-плану;</li>
+              <li>фінансові розрахунки доходів і витрат;</li>
+              <li>формування бюджету проєкту;</li>
+              <li>економічне обґрунтування запланованих витрат;</li>
+              <li>допомога у визначенні оптимальної групи ФОП та системи оподаткування;</li>
+              <li>підбір КВЕДів відповідно до запланованої діяльності та умов програми;</li>
+              <li>визначення строку реалізації проєкту;</li>
+              <li>визначення періоду моніторингу відповідно до умов програми.</li>
+            </ul>
+            <p class="work-result"><strong>Результат:</strong> готовий бізнес-план із фінансовими розрахунками та бюджетом, адаптований до вимог обраної грантової програми.</p>
+            <a href="#anketa" class="btn-primary btn-small">Замовити бізнес-план</a>
           </div>
-          <div class="faq-answer">
-            <p>Розмір грантів може становити від 50 тисяч гривень до 1 мільйона доларів.</p>
-          </div>
-        </div>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Яка інформація потрібна для перевірки вимог грантової програми?</span>
-            <i class="fas fa-chevron-down"></i>
+          <div class="work-card" data-category="plan">
+            <h3>Аудит готового бізнес-плану</h3>
+            <p class="work-price">3 000 грн</p>
+            <p class="work-intro">Вже маєте бізнес-план, але хочете перевірити його перед поданням? Проведу професійний аналіз та покажу, що варто доопрацювати.</p>
+            <p class="work-label">Перевірю:</p>
+            <ul class="work-list">
+              <li>структуру та зміст бізнес-плану;</li>
+              <li>фінансові розрахунки;</li>
+              <li>бюджет проєкту;</li>
+              <li>відповідність вимогам грантової програми;</li>
+              <li>логіку та економічне обґрунтування проєкту;</li>
+              <li>можливі помилки та слабкі місця.</li>
+            </ul>
+            <p class="work-result"><strong>Результат:</strong> конкретні рекомендації та перелік правок, необхідних перед поданням.</p>
+            <a href="#anketa" class="btn-primary btn-small">Замовити аудит</a>
           </div>
-          <div class="faq-answer">
-            <p>Для перевірки вашої кандидатури на відповідність вимогам програми нам необхідна наступна інформація:</p>
-            <ol>
-              <li>ЄДРПОУ компанії або ІНН ФОПа/фізичної особи</li>
-              <li>РНКПО засновників та директора (якщо у Вас ТОВ)</li>
-              <li>Кредитну історію з сайту <a href="https://my.pvbki.com/Cabinet/Home/CreditHistory" target="_blank">https://my.pvbki.com/Cabinet/Home/CreditHistory</a> (сформований файл надіслати нам)</li>
-              <li>Електронну пошту</li>
-              <li>Адресу реєстрації</li>
-              <li>Номер телефону</li>
-            </ol>
+
+          <div class="work-card" data-category="consult">
+            <h3>Підготовка до грантової співбесіди</h3>
+            <p class="work-price">2 500 грн</p>
+            <p class="work-intro">Допоможу підготуватися до співбесіди та впевнено представити свій бізнес-проєкт.</p>
+            <p class="work-label">У послугу входить:</p>
+            <ul class="work-list">
+              <li>розбір можливих запитань;</li>
+              <li>підготовка та формування відповідей;</li>
+              <li>тренування презентації проєкту;</li>
+              <li>робота над слабкими місцями.</li>
+            </ul>
+            <p class="work-result"><strong>Результат:</strong> впевнена презентація свого проєкту на співбесіді.</p>
+            <a href="#anketa" class="btn-primary btn-small">Записатися на підготовку</a>
           </div>
-        </div>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Як почати роботу?</span>
-            <i class="fas fa-chevron-down"></i>
+          <div class="work-card featured" data-category="support">
+            <span class="badge-featured">🔥 Під ключ</span>
+            <h3>Повний супровід «Під ключ»</h3>
+            <p class="work-price">Індивідуальна ціна — обговорюється</p>
+            <p class="work-intro">Комплексний супровід від ідеї до отримання гранту. Беру на себе весь процес підготовки, подання та супроводу заявки.</p>
+            <p class="work-label">Що входить:</p>
+            <ul class="work-list">
+              <li>аналіз бізнес-ідеї та підбір грантової програми;</li>
+              <li>розробка бізнес-плану та фінансової моделі;</li>
+              <li>формування повного пакету документів;</li>
+              <li>заповнення грантової заявки;</li>
+              <li>підготовка до співбесіди;</li>
+              <li>супровід під час подання заявки;</li>
+              <li>допомога в період моніторингу проєкту;</li>
+              <li>постійний зв'язок і консультації на всіх етапах.</li>
+            </ul>
+            <p class="work-result"><strong>Результат:</strong> повний цикл роботи — від бізнес-ідеї до отримання рішення про фінансування.</p>
+            <a href="#anketa" class="btn-primary btn-small">Обговорити співпрацю</a>
           </div>
-          <div class="faq-answer">
-            <p>Просто заповніть анкету за кнопкою "Підібрати грант" або напишіть мені в Telegram. Ми проведемо безкоштовну консультацію, щоб визначити ваші потреби та обсяг роботи.</p>
-          </div>
-        </div>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Скільки часу займає написання гранту?</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Залежить від складності. Для невеликих грантів (до €20,000) потрібно 3-5 днів. Для великих міжнародних грантів — 2-3 тижні. Завжди працюю з дедлайнами клієнта.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Чи надаєте гарантію виграшу?</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Жоден грантрайтер не може гарантувати виграш, оскільки це залежить від багатьох факторів. Але я гарантую професійну якісну підготовку документів і супровід на всіх етапах.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ANKETA (вбудований блок) ===== -->
-  <section id="anketa">
-    <div class="container">
-      <h2>Заповнити заявку</h2>
-      <p class="section-subtitle">Анкета допоможе мені отримати необхідну інформацію про ваш бізнес або бізнес-ідею, визначити обсяг роботи та підготувати пропозицію щодо співпраці.</p>
-      <p class="section-subtitle">Заповнення заявки займає орієнтовно 10–15 хвилин. Якщо ви не знаєте відповіді на окремі питання — це нормально. Зазначте «Не знаю».</p>
-
-      <form class="anketa-form" id="anketaForm">
-        
-        <!-- 1. Контакти -->
-        <div class="anketa-block">
-          <h3>1. Ваші контакти</h3>
-          <div class="form-row">
-            <input type="text" name="name" placeholder="Ім'я та прізвище *" required />
-            <input type="tel" name="phone" placeholder="Телефон / Viber / Telegram *" required />
-          </div>
-          <input type="email" name="email" placeholder="E-mail (необов'язково)" />
-        </div>
-
-        <!-- 2. Етап бізнесу -->
-        <div class="anketa-block">
-          <h3>2. На якому етапі ваш бізнес? *</h3>
-          <div class="radio-group">
-            <label><input type="radio" name="stage" value="Тільки маю бізнес-ідею" required /> Тільки маю бізнес-ідею</label>
-            <label><input type="radio" name="stage" value="Планую відкрити бізнес найближчим часом" /> Планую відкрити / зареєструвати бізнес найближчим часом</label>
-            <label><input type="radio" name="stage" value="Вже маю діючий бізнес" /> Вже маю діючий бізнес</label>
-            <label><input type="radio" name="stage" value="Хочу розширити або масштабувати бізнес" /> Хочу розширити або масштабувати бізнес</label>
-            <label><input type="radio" name="stage" value="Поки не визначився" /> Поки не визначився / не визначилась</label>
-          </div>
-        </div>
-
-        <!-- 3. Про бізнес -->
-        <div class="anketa-block">
-          <h3>3. Розкажіть про ваш бізнес або ідею *</h3>
-          <textarea name="business" rows="4" placeholder="Чим плануєте займатися або чим уже займаєтесь?" required></textarea>
-        </div>
-
-        <!-- 4. Статус -->
-        <div class="anketa-block">
-          <h3>4. Ваш статус *</h3>
-          <div class="radio-group">
-            <label><input type="radio" name="status" value="Фізична особа, ще не маю ФОП" required /> Фізична особа, ще не маю ФОП</label>
-            <label><input type="radio" name="status" value="Планую зареєструвати ФОП" /> Планую зареєструвати ФОП</label>
-            <label><input type="radio" name="status" value="ФОП уже зареєстрований" /> ФОП уже зареєстрований</label>
-            <label><input type="radio" name="status" value="ТОВ / інша юридична особа" /> ТОВ / інша юридична особа</label>
-          </div>
-          <p class="sub-question">Якщо ви ФОП — коли його зареєстровано?</p>
-          <div class="radio-group">
-            <label><input type="radio" name="fop_age" value="Менше 1 року" /> Менше 1 року</label>
-            <label><input type="radio" name="fop_age" value="1–3 роки" /> 1–3 роки</label>
-            <label><input type="radio" name="fop_age" value="Понад 3 роки" /> Понад 3 роки</label>
-            <label><input type="radio" name="fop_age" value="Не знаю" /> Не знаю</label>
-          </div>
-        </div>
-
-        <!-- 5. Вік -->
-        <div class="anketa-block">
-          <h3>5. Ваш вік *</h3>
-          <div class="radio-group">
-            <label><input type="radio" name="age" value="18–25 років" required /> 18–25 років</label>
-            <label><input type="radio" name="age" value="26–59 років" /> 26–59 років</label>
-            <label><input type="radio" name="age" value="60 і старше" /> 60 і старше</label>
-          </div>
-        </div>
-
-        <!-- 6. Особливий статус -->
-        <div class="anketa-block">
-          <h3>6. Чи маєте ви особливий статус або умови, які можуть впливати на розмір чи умови гранту?</h3>
-          <div class="checkbox-group">
-            <label><input type="checkbox" name="special[]" value="Ветеран або член родини" /> Я є ветеран або член його родини (буду суб'єктом ветеранського підприємництва)</label>
-            <label><input type="checkbox" name="special[]" value="Платник ПДВ" /> Я зареєстрований / зареєстрована платником ПДВ</label>
-            <label><input type="checkbox" name="special[]" value="ВПО" /> Я маю статус ВПО та понад 6 місяців підприємницького досвіду</label>
-            <label><input type="checkbox" name="special[]" value="Релоковане підприємство" /> Мій бізнес є релокованим підприємством</label>
-            <label><input type="checkbox" name="special[]" value="Створення 2+ робочих місць" /> Я планую створити мінімум 2 нових робочих місця</label>
-            <label><input type="checkbox" name="special[]" value="Оновлення основних засобів" /> Грант планую використати на оновлення основних засобів виробництва, знищених або пошкоджених внаслідок збройної агресії РФ</label>
-            <label><input type="checkbox" name="special[]" value="Частина власних коштів" /> Я маю частину власних коштів від необхідної суми гранту</label>
-            <label><input type="checkbox" name="special[]" value="Інше" /> Інше: <input type="text" name="special_other" placeholder="вкажіть" style="display:inline-block; width:auto; padding:4px 10px; margin-left:8px; border-radius:20px; border:1px solid #e8dbd3;" /></label>
-            <label><input type="checkbox" name="special[]" value="Нічого з переліченого" /> Нічого з переліченого</label>
-          </div>
-        </div>
-
-        <!-- 7. Регіон -->
-        <div class="anketa-block">
-          <h3>7. Де буде працювати ваш бізнес? *</h3>
-          <div class="radio-group">
-            <label><input type="radio" name="region" value="Дніпропетровська область" required /> Дніпропетровська область</label>
-            <label><input type="radio" name="region" value="Донецька область" /> Донецька область</label>
-            <label><input type="radio" name="region" value="Запорізька область" /> Запорізька область</label>
-            <label><input type="radio" name="region" value="Миколаївська область" /> Миколаївська область</label>
-            <label><input type="radio" name="region" value="Одеська область" /> Одеська область</label>
-            <label><input type="radio" name="region" value="Сумська область" /> Сумська область</label>
-            <label><input type="radio" name="region" value="Харківська область" /> Харківська область</label>
-            <label><input type="radio" name="region" value="Херсонська область" /> Херсонська область</label>
-            <label><input type="radio" name="region" value="Чернігівська область" /> Чернігівська область</label>
-            <label><input type="radio" name="region" value="Славутицька міська територіальна громада Київської області" /> Славутицька міська територіальна громада Київської області</label>
-            <label><input type="radio" name="region" value="Інша область" /> Інша область</label>
-          </div>
-        </div>
-
-        <!-- 8. Сектор -->
-        <div class="anketa-block">
-          <h3>8. До якого сектору належить ваш бізнес? *</h3>
-          <p class="hint">Оберіть один або декілька варіантів:</p>
-          <div class="checkbox-group">
-            <label><input type="checkbox" name="sector[]" value="Перероблення відходів / циркулярна економіка" /> Перероблення відходів / циркулярна економіка</label>
-            <label><input type="checkbox" name="sector[]" value="Економіка догляду / реабілітація / соціальні послуги" /> Економіка догляду / реабілітація / соціальні послуги</label>
-            <label><input type="checkbox" name="sector[]" value="Високотехнологічне виробництво" /> Високотехнологічне виробництво</label>
-            <label><input type="checkbox" name="sector[]" value="Креативні індустрії" /> Креативні індустрії</label>
-            <label><input type="checkbox" name="sector[]" value="ІТ / цифрові продукти та послуги" /> ІТ / цифрові продукти та послуги</label>
-            <label><input type="checkbox" name="sector[]" value="Освіта" /> Освіта</label>
-            <label><input type="checkbox" name="sector[]" value="Спорт / здоровий спосіб життя" /> Спорт / здоровий спосіб життя</label>
-            <label><input type="checkbox" name="sector[]" value="Готельно-ресторанний бізнес" /> Готельно-ресторанний бізнес</label>
-            <label><input type="checkbox" name="sector[]" value="Будівництво / інфраструктурне відновлення" /> Будівництво / інфраструктурне відновлення</label>
-            <label><input type="checkbox" name="sector[]" value="Промисловість / харчова промисловість" /> Промисловість / харчова промисловість</label>
-            <label><input type="checkbox" name="sector[]" value="Енергетика / комунальна сфера" /> Енергетика / комунальна сфера</label>
-            <label><input type="checkbox" name="sector[]" value="Агропромисловий комплекс" /> Агропромисловий комплекс</label>
-            <label><input type="checkbox" name="sector[]" value="Оборонно-промисловий комплекс" /> Оборонно-промисловий комплекс</label>
-            <label><input type="checkbox" name="sector[]" value="Охорона здоров'я / соціальна сфера" /> Охорона здоров'я / соціальна сфера</label>
-            <label><input type="checkbox" name="sector[]" value="Кібербезпека" /> Кібербезпека</label>
-            <label><input type="checkbox" name="sector[]" value="Інше" /> Інше: <input type="text" name="sector_other" placeholder="вкажіть" style="display:inline-block; width:auto; padding:4px 10px; margin-left:8px; border-radius:20px; border:1px solid #e8dbd3;" /></label>
-          </div>
-        </div>
-
-        <!-- 9. Сума -->
-        <div class="anketa-block">
-          <h3>9. Скільки коштів потрібно для реалізації вашого проєкту? *</h3>
-          <div class="radio-group">
-            <label><input type="radio" name="amount" value="До 100 000 грн" required /> До 100 000 грн</label>
-            <label><input type="radio" name="amount" value="100 000–250 000 грн" /> 100 000–250 000 грн</label>
-            <label><input type="radio" name="amount" value="250 000–500 000 грн" /> 250 000–500 000 грн</label>
-            <label><input type="radio" name="amount" value="Понад 500 000 грн" /> Понад 500 000 грн</label>
-            <label><input type="radio" name="amount" value="Не знаю — потрібен розрахунок" /> Не знаю — потрібен розрахунок</label>
-          </div>
-        </div>
-
-        <!-- 10. Витрати -->
-        <div class="anketa-block">
-          <h3>10. На що плануєте витратити кошти? *</h3>
-          <p class="hint">Оберіть усе, що підходить:</p>
-          <div class="checkbox-group">
-            <label><input type="checkbox" name="expenses[]" value="Обладнання" /> Обладнання</label>
-            <label><input type="checkbox" name="expenses[]" value="Сировина / матеріали" /> Сировина / матеріали</label>
-            <label><input type="checkbox" name="expenses[]" value="Оренда приміщення" /> Оренда приміщення</label>
-            <label><input type="checkbox" name="expenses[]" value="Ремонт / облаштування" /> Ремонт / облаштування</label>
-            <label><input type="checkbox" name="expenses[]" value="Програмне забезпечення / техніка" /> Програмне забезпечення / техніка</label>
-            <label><input type="checkbox" name="expenses[]" value="Реклама та маркетинг" /> Реклама та маркетинг</label>
-            <label><input type="checkbox" name="expenses[]" value="Заробітна плата" /> Заробітна плата</label>
-            <label><input type="checkbox" name="expenses[]" value="Транспорт" /> Транспорт</label>
-            <label><input type="checkbox" name="expenses[]" value="Інше" /> Інше: <input type="text" name="expenses_other" placeholder="вкажіть" style="display:inline-block; width:auto; padding:4px 10px; margin-left:8px; border-radius:20px; border:1px solid #e8dbd3;" /></label>
-          </div>
-        </div>
-
-        <!-- 11. Послуга -->
-        <div class="anketa-block">
-          <h3>11. Яка послуга вам потрібна? *</h3>
-          <div class="radio-group">
-            <label><input type="radio" name="service" value="Підібрати грантову програму" required /> Підібрати грантову програму</label>
-            <label><input type="radio" name="service" value="Розробити бізнес-план" /> Розробити бізнес-план</label>
-            <label><input type="radio" name="service" value="Підготувати бізнес-план та грантову заявку" /> Підготувати бізнес-план та грантову заявку</label>
-            <label><input type="radio" name="service" value="Проаналізувати готовий бізнес-план" /> Проаналізувати готовий бізнес-план</label>
-            <label><input type="radio" name="service" value="Підготуватися до подачі / співбесіди" /> Підготуватися до подачі / співбесіди</label>
-            <label><input type="radio" name="service" value="Консультація щодо підготовки проєкту" /> Консультація щодо підготовки проєкту</label>
-            <label><input type="radio" name="service" value="Поки не знаю — хочу обговорити" /> Поки не знаю — хочу обговорити</label>
-          </div>
-        </div>
-
-        <button type="submit" class="btn-primary btn-large">Подати заявку на співпрацю</button>
-
-        <p class="anketa-disclaimer">Заповнення заявки не означає автоматичного прийняття замовлення в роботу або гарантії отримання гранту. Після отримання заявки я зв'яжуся з вами, щоб уточнити деталі, визначити обсяг роботи та погодити формат співпраці.</p>
-      </form>
-    </div>
-  </section>
-
-  <!-- ===== CONTACTS ===== -->
-  <section id="contacts">
-    <div class="container contacts-wrapper">
-      <div class="contacts-info">
-        <h2>Контакти</h2>
-        <div class="contact-item">
-          <i class="fab fa-telegram-plane"></i>
-          <a href="https://t.me/life_and_woman" target="_blank">@life_and_woman</a>
-        </div>
-        <div class="contact-item">
-          <i class="fab fa-instagram"></i>
-          <a href="https://instagram.com/time_to_live_2026" target="_blank">@time_to_live_2026</a>
-        </div>
-        <div class="contact-item">
-          <i class="fas fa-envelope"></i>
-          <a href="mailto:viktorija060488@icloud.com">viktorija060488@icloud.com</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== BACK TO TOP ===== -->
-  <button id="backToTop" class="back-to-top">
+    <!-- ===== FAQ ===== -->
+    <section id="faq">
+      <div class="container">
+        <h2>Часті запитання</h2>
+        <div class="faq-list">
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Хто має право на отримання гранту?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Це можуть бути майбутні підприємці, діючі ФОП або юридичні особи, які не здійснюють господарську діяльність на тимчасово окупованій території України або на території Росії, не перебувають під санкціями, не мають справ про банкрутство, не притягувалися до кримінальної відповідальності за корупцію та не мають заборгованості перед бюджетом.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Які зобов'язання пов'язані з отриманням гранту?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Умови отримання гранту можуть варіюватися залежно від кожної грантової програми. Зазвичай вимога може полягати в створенні робочих місць, але існують програми, де такі вимоги відсутні.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Умови і випадки надання</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Заяву на отримання мікрогранту можуть подавати:</p>
+              <ul>
+                <li>громадяни України;</li>
+                <li>юридичні особи, засновниками яких є тільки фізичні особи — громадяни України;</li>
+                <li>фізичні особи, що планують відкрити ФОП, дійсні ФОП та юридичні особи:</li>
+              </ul>
+              <ul>
+                <li>які не перебувають і не працюють на тимчасово окупованій території України;</li>
+                <li>які не працюють на території росії;</li>
+                <li>які не перебувають під санкціями;</li>
+                <li>щодо яких не порушували справи про банкрутство;</li>
+                <li>які не притягувались до кримінальної відповідальності за корупцію;</li>
+                <li>які не мають заборгованості перед бюджетом;</li>
+                <li>які не виробляють та/або не реалізують зброю, алкогольні напої, тютюнові вироби та не займаються обміном валют;</li>
+                <li>які не є кредитними, страховими організаціями, інвестиційними, недержавними пенсійними фондами, професійними учасниками ринку цінних паперів, ломбардами.</li>
+              </ul>
+              <p>Отримувачем може бути фізична особа, яка має намір розпочати підприємницьку діяльність і бере на себе зобов'язання зареєструватися фізичною особою — підприємцем або створити юридичну особу у випадку отримання позитивного рішення про надання мікрогранту.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Який розмір грантів може бути наданий?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Розмір грантів може становити від 50 тисяч гривень до 1 мільйона доларів.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Яка інформація потрібна для перевірки вимог грантової програми?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Для перевірки вашої кандидатури на відповідність вимогам програми нам необхідна наступна інформація:</p>
+              <ol>
+                <li>ЄДРПОУ компанії або ІНН ФОПа/фізичної особи</li>
+                <li>РНКПО засновників та директора (якщо у Вас ТОВ)</li>
+                <li>Кредитну історію з сайту <a href="https://my.pvbki.com/Cabinet/Home/CreditHistory" target="_blank">https://my.pvbki.com/Cabinet/Home/CreditHistory</a> (сформований файл надіслати нам)</li>
+                <li>Електронну пошту</li>
+                <li>Адресу реєстрації</li>
+                <li>Номер телефону</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Як почати роботу?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Просто заповніть анкету за кнопкою "Підібрати грант" або напишіть мені в Telegram. Ми проведемо безкоштовну консультацію, щоб визначити ваші потреби та обсяг роботи.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Скільки часу займає написання гранту?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Залежить від складності. Для невеликих грантів (до €20,000) потрібно 3-5 днів. Для великих міжнародних грантів — 2-3 тижні. Завжди працюю з дедлайнами клієнта.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Чи надаєте гарантію виграшу?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Жоден грантрайтер не може гарантувати виграш, оскільки це залежить від багатьох факторів. Але я гарантую професійну якісну підготовку документів і супровід на всіх етапах.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ANKETA ===== -->
+    <section id="anketa">
+      <div class="container">
+        <h2>Заповнити заявку</h2>
+        <p class="section-subtitle">Анкета допоможе мені отримати необхідну інформацію про ваш бізнес або бізнес-ідею, визначити обсяг роботи та підготувати пропозицію щодо співпраці.</p>
+        <p class="section-subtitle">Заповнення заявки займає орієнтовно 10–15 хвилин. Якщо ви не знаєте відповіді на окремі питання — це нормально. Зазначте «Не знаю».</p>
+
+        <form class="anketa-form" id="anketaForm">
+          
+          <div class="anketa-block">
+            <h3>1. Ваші контакти</h3>
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Ім'я та прізвище *" required />
+              <input type="tel" name="phone" placeholder="Телефон / Viber / Telegram *" required />
+            </div>
+            <input type="email" name="email" placeholder="E-mail (необов'язково)" />
+          </div>
+
+          <div class="anketa-block">
+            <h3>2. На якому етапі ваш бізнес? *</h3>
+            <div class="radio-group">
+              <label><input type="radio" name="stage" value="Тільки маю бізнес-ідею" required /> Тільки маю бізнес-ідею</label>
+              <label><input type="radio" name="stage" value="Планую відкрити бізнес найближчим часом" /> Планую відкрити / зареєструвати бізнес найближчим часом</label>
+              <label><input type="radio" name="stage" value="Вже маю діючий бізнес" /> Вже маю діючий бізнес</label>
+              <label><input type="radio" name="stage" value="Хочу розширити або масштабувати бізнес" /> Хочу розширити або масштабувати бізнес</label>
+              <label><input type="radio" name="stage" value="Поки не визначився" /> Поки не визначився / не визначилась</label>
+            </div>
+          </div>
+
+          <div class="anketa-block">
+            <h3>3. Розкажіть про ваш бізнес або ідею *</h3>
+            <textarea name="business" rows="4" placeholder="Чим плануєте займатися або чим уже займаєтесь?" required></textarea>
+          </div>
+
+          <div class="anketa-block">
+            <h3>4. Ваш статус *</h3>
+            <div class="radio-group">
+              <label><input type="radio" name="status" value="Фізична особа, ще не маю ФОП" required /> Фізична особа, ще не маю ФОП</label>
+              <label><input type="radio" name="status" value="Планую зареєструвати ФОП" /> Планую зареєструвати ФОП</label>
+              <label><input type="radio" name="status" value="ФОП уже зареєстрований" /> ФОП уже зареєстрований</label>
+              <label><input type="radio" name="status" value="ТОВ / інша юридична особа" /> ТОВ / інша юридична особа</label>
+            </div>
+            <p class="sub-question">Якщо ви ФОП — коли його зареєстровано?</p>
+            <div class="radio-group">
+              <label><input type="radio" name="fop_age" value="Менше 1 року" /> Менше 1 року</label>
+              <label><input type="radio" name="fop_age" value="1–3 роки" /> 1–3 роки</label>
+              <label><input type="radio" name="fop_age" value="Понад 3 роки" /> Понад 3 роки</label>
+              <label><input type="radio" name="fop_age" value="Не знаю" /> Не знаю</label>
+            </div>
+          </div>
+
+          <div class="anketa-block">
+            <h3>5. Ваш вік *</h3>
+            <div class="radio-group">
+              <label><input type="radio" name="age" value="18–25 років" required /> 18–25 років</label>
+              <label><input type="radio" name="age" value="26–59 років" /> 26–59 років</label>
+              <label><input type="radio" name="age" value="60 і старше" /> 60 і старше</label>
+            </div>
+          </div>
+
+          <div class="anketa-block">
+            <h3>6. Чи маєте ви особливий статус або умови, які можуть впливати на розмір чи умови гранту?</h3>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="special[]" value="Ветеран або член родини" /> Я є ветеран або член його родини (буду суб'єктом ветеранського підприємництва)</label>
+              <label><input type="checkbox" name="special[]" value="Платник ПДВ" /> Я зареєстрований / зареєстрована платником ПДВ</label>
+              <label><input type="checkbox" name="special[]" value="ВПО" /> Я маю статус ВПО та понад 6 місяців підприємницького досвіду</label>
+              <label><input type="checkbox" name="special[]" value="Релоковане підприємство" /> Мій бізнес є релокованим підприємством</label>
+              <label><input type="checkbox" name="special[]" value="Створення 2+ робочих місць" /> Я планую створити мінімум 2 нових робочих місця</label>
+              <label><input type="checkbox" name="special[]" value="Оновлення основних засобів" /> Грант планую використати на оновлення основних засобів виробництва, знищених або пошкоджених внаслідок збройної агресії РФ</label>
+              <label><input type="checkbox" name="special[]" value="Частина власних коштів" /> Я маю частину власних коштів від необхідної суми гранту</label>
+              <label><input type="checkbox" name="special[]" value="Інше" /> Інше: <input type="text" name="special_other" placeholder="вкажіть" style="display:inline-block; width:auto; padding:4px 10px; margin-left:8px; border-radius:20px; border:1px solid #e8dbd3;" /></label>
+              <label><input type="checkbox" name="special[]" value="Нічого з переліченого" /> Нічого з переліченого</label>
+            </div>
+          </div>
+
+          <div class="anketa-block">
+            <h3>7. Де буде працювати ваш бізнес? *</h3>
+            <div class="radio-group">
+              <label><input type="radio" name="region" value="Дніпропетровська область" required /> Дніпропетровська область</label>
+              <label><input type="radio" name="region" value="Донецька область" /> Донецька область</label>
+              <label><input type="radio" name="region" value="Запорізька область" /> Запорізька область</label>
+              <label><input type="radio" name="region" value="Миколаївська область" /> Миколаївська область</label>
+              <label><input type="radio" name="region" value="Одеська область" /> Одеська область</label>
+              <label><input type="radio" name="region" value="Сумська область" /> Сумська область</label>
+              <label><input type="radio" name="region" value="Харківська область" /> Харківська область</label>
+              <label><input type="radio" name="region" value="Херсонська область" /> Херсонська область</label>
+              <label><input type="radio" name="region" value="Чернігівська область" /> Чернігівська область</label>
+              <label><input type="radio" name="region" value="Славутицька міська територіальна громада Київської області" /> Славутицька міська територіальна громада Київської області</label>
+              <label><input type="radio" name="region" value="Інша область" /> Інша область</label>
+            </div>
+          </div>
+
+          <div class="anketa-block">
+            <h3>8. До якого сектору належить ваш бізнес? *</h3>
+            <p class="hint">Оберіть один або декілька варіантів:</p>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="sector[]" value="Перероблення відходів / циркулярна економіка" /> Перероблення відходів / циркулярна економіка</label>
+              <label><input type="checkbox" name="sector[]" value="Економіка догляду / реабілітація / соціальні послуги" /> Економіка догляду / реабілітація / соціальні послуги</label>
+              <label><input type="checkbox" name="sector[]" value="Високотехнологічне виробництво" /> Високотехнологічне виробництво</label>
+              <label><input type="checkbox" name="sector[]" value="Креативні індустрії" /> Креативні індустрії</label>
+              <label><input type="checkbox" name="sector[]" value="ІТ / цифрові продукти та послуги" /> ІТ / цифрові продукти та послуги</label>
+              <label><input type="checkbox" name="sector[]" value="Освіта" /> Освіта</label>
+              <label><input type="checkbox" name="sector[]" value="Спорт / здоровий спосіб життя" /> Спорт / здоровий спосіб життя</label>
+              <label><input type="checkbox" name="sector[]" value="Готельно-ресторанний бізнес" /> Готельно-ресторанний бізнес</label>
+              <label><input type="checkbox" name="sector[]" value="Будівництво / інфраструктурне відновлення" /> Будівництво / інфраструктурне відновлення</label>
+              <label><input type="checkbox" name="sector[]" value="Промисловість / харчова промисловість" /> Промисловість / харчова промисловість</label>
+              <label><input type="checkbox" name="sector[]" value="Енергетика / комунальна сфера" /> Енергетика / комунальна сфера</label>
+              <label><input type="checkbox" name="sector[]" value="Агропромисловий комплекс" /> Агропромисловий комплекс</label>
+              <label><input type="checkbox" name="sector[]" value="Оборонно-промисловий комплекс" /> Оборонно-промисловий комплекс</label>
+              <label><input type="checkbox" name="sector[]" value="Охорона здоров'я / соціальна сфера" /> Охорона здоров'я / соціальна сфера</label>
+              <label><input type="checkbox" name="sector[]" value="Кібербезпека" /> Кібербезпека</label>
+              <label><input type="checkbox" name="sector[]" value="Інше" /> Інше: <input type="text" name="sector_other" placeholder="вкажіть" style="display:inline-block; width:auto; padding:4px 10px; margin-left:8px; border-radius:20px; border:1px solid #e8dbd3;" /></label>
+            </div>
+          </div>
+
+          <div class="anketa-block">
+            <h3>9. Скільки коштів потрібно для реалізації вашого проєкту? *</h3>
+            <div class="radio-group">
+              <label><input type="radio" name="amount" value="До 100 000 грн" required /> До 100 000 грн</label>
+              <label><input type="radio" name="amount" value="100 000–250 000 грн" /> 100 000–250 000 грн</label>
+              <label><input type="radio" name="amount" value="250 000–500 000 грн" /> 250 000–500 000 грн</label>
+              <label><input type="radio" name="amount" value="Понад 500 000 грн" /> Понад 500 000 грн</label>
+              <label><input type="radio" name="amount" value="Не знаю — потрібен розрахунок" /> Не знаю — потрібен розрахунок</label>
+            </div>
+          </div>
+
+          <div class="anketa-block">
+            <h3>10. На що плануєте витратити кошти? *</h3>
+            <p class="hint">Оберіть усе, що підходить:</p>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="expenses[]" value="Обладнання" /> Обладнання</label>
+              <label><input type="checkbox" name="expenses[]" value="Сировина / матеріали" /> Сировина / матеріали</label>
+              <label><input type="checkbox" name="expenses[]" value="Оренда приміщення" /> Оренда приміщення</label>
+              <label><input type="checkbox" name="expenses[]" value="Ремонт / облаштування" /> Ремонт / облаштування</label>
+              <label><input type="checkbox" name="expenses[]" value="Програмне забезпечення / техніка" /> Програмне забезпечення / техніка</label>
+              <label><input type="checkbox" name="expenses[]" value="Реклама та маркетинг" /> Реклама та маркетинг</label>
+              <label><input type="checkbox" name="expenses[]" value="Заробітна плата" /> Заробітна плата</label>
+              <label><input type="checkbox" name="expenses[]" value="Транспорт" /> Транспорт</label>
+              <label><input type="checkbox" name="expenses[]" value="Інше" /> Інше: <input type="text" name="expenses_other" placeholder="вкажіть" style="display:inline-block; width:auto; padding:4px 10px; margin-left:8px; border-radius:20px; border:1px solid #e8dbd3;" /></label>
+            </div>
+          </div>
+
+          <div class="anketa-block">
+            <h3>11. Яка послуга вам потрібна? *</h3>
+            <div class="radio-group">
+              <label><input type="radio" name="service" value="Підібрати грантову програму" required /> Підібрати грантову програму</label>
+              <label><input type="radio" name="service" value="Розробити бізнес-план" /> Розробити бізнес-план</label>
+              <label><input type="radio" name="service" value="Підготувати бізнес-план та грантову заявку" /> Підготувати бізнес-план та грантову заявку</label>
+              <label><input type="radio" name="service" value="Проаналізувати готовий бізнес-план" /> Проаналізувати готовий бізнес-план</label>
+              <label><input type="radio" name="service" value="Підготуватися до подачі / співбесіди" /> Підготуватися до подачі / співбесіди</label>
+              <label><input type="radio" name="service" value="Консультація щодо підготовки проєкту" /> Консультація щодо підготовки проєкту</label>
+              <label><input type="radio" name="service" value="Поки не знаю — хочу обговорити" /> Поки не знаю — хочу обговорити</label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary btn-large">Подати заявку на співпрацю</button>
+
+          <p class="anketa-disclaimer">Заповнення заявки не означає автоматичного прийняття замовлення в роботу або гарантії отримання гранту. Після отримання заявки я зв'яжуся з вами, щоб уточнити деталі, визначити обсяг роботи та погодити формат співпраці.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTS ===== -->
+    <section id="contacts">
+      <div class="container contacts-wrapper">
+        <div class="contacts-info">
+          <h2>Контакти</h2>
+          <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <a href="tel:+380501234567">+38 050 123 45 67</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-telegram-plane"></i>
+            <a href="https://t.me/viktoria_grant" target="_blank">@viktoria_grant</a>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-instagram"></i>
+            <a href="https://instagram.com/viktoria_grant" target="_blank">@viktoria_grant</a>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:viktoria@grant.ua">viktoria@grant.ua</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="backToTop" class="back-to-top" aria-label="Вгору">
     <i class="fas fa-arrow-up"></i>
   </button>
 
-  <!-- ===== JS ===== -->
   <script src="script.js"></script>
 </body>
 </html>
