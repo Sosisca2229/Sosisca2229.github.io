@@ -1,4 +1,4 @@
-const CACHE_NAME = 'viktoria-portfolio-v1';
+const CACHE_NAME = 'viktoria-portfolio-v4';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',

@@ -14,11 +14,8 @@ window.addEventListener('scroll', () => {
 // ===== КНОПКА "ВГОРУ" =====
 window.addEventListener('scroll', () => {
   const btn = document.getElementById('backToTop');
-  if (window.scrollY > 400) {
-    btn.classList.add('show');
-  } else {
-    btn.classList.remove('show');
-  }
+  if (window.scrollY > 400) btn.classList.add('show');
+  else btn.classList.remove('show');
 });
 document.getElementById('backToTop')?.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -65,9 +62,7 @@ function updateSlide(index) {
   slides.style.transform = `translateX(-${currentSlide * 100}%)`;
 }
 
-let autoSlide = setInterval(() => {
-  updateSlide(currentSlide + 1);
-}, 4000);
+let autoSlide = setInterval(() => updateSlide(currentSlide + 1), 4000);
 
 if (prevBtn && nextBtn) {
   prevBtn.addEventListener('click', () => {
@@ -82,10 +77,9 @@ if (prevBtn && nextBtn) {
   });
 }
 
-// ===== SWIPE ДЛЯ СЛАЙДЕРА =====
+// ===== SWIPE =====
 const sliderEl = document.querySelector('.about-slider');
-let touchStartX = 0;
-let touchEndX = 0;
+let touchStartX = 0, touchEndX = 0;
 
 if (sliderEl) {
   sliderEl.addEventListener('touchstart', (e) => {
@@ -94,40 +88,23 @@ if (sliderEl) {
 
   sliderEl.addEventListener('touchend', (e) => {
     touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) < 50) return;
+    clearInterval(autoSlide);
+    if (diff > 0) updateSlide(currentSlide + 1);
+    else updateSlide(currentSlide - 1);
+    autoSlide = setInterval(() => updateSlide(currentSlide + 1), 4000);
   }, { passive: true });
 }
 
-function handleSwipe() {
-  const swipeThreshold = 50;
-  const diff = touchStartX - touchEndX;
-
-  if (Math.abs(diff) < swipeThreshold) return;
-
-  if (diff > 0) {
-    clearInterval(autoSlide);
-    updateSlide(currentSlide + 1);
-    autoSlide = setInterval(() => updateSlide(currentSlide + 1), 4000);
-  } else {
-    clearInterval(autoSlide);
-    updateSlide(currentSlide - 1);
-    autoSlide = setInterval(() => updateSlide(currentSlide + 1), 4000);
-  }
-}
-
-// ===== ФІЛЬТРАЦІЯ ПОСЛУГ =====
+// ===== ФІЛЬТРАЦІЯ =====
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', function() {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     this.classList.add('active');
-    
     const filter = this.dataset.filter;
     document.querySelectorAll('.work-card').forEach(card => {
-      if (filter === 'all' || card.dataset.category === filter) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
+      card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'flex' : 'none';
     });
   });
 });
@@ -150,42 +127,28 @@ function setTheme(isDark) {
   localStorage.setItem('darkMode', isDark);
   darkMode = isDark;
 }
-
 setTheme(darkMode);
+themeToggle?.addEventListener('click', () => setTheme(!darkMode));
 
-themeToggle?.addEventListener('click', () => {
-  setTheme(!darkMode);
-});
-
-// ===== FAQ АККОРДЕОН =====
+// ===== FAQ =====
 document.querySelectorAll('.faq-question').forEach(question => {
   question.addEventListener('click', function() {
     const item = this.closest('.faq-item');
     const isOpen = item.classList.contains('open');
-    
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    
-    if (!isOpen) {
-      item.classList.add('open');
-    }
+    if (!isOpen) item.classList.add('open');
   });
 });
 
-// ===== GOOGLE TAG MANAGER — EVENT TRACKING =====
+// ===== GTM =====
 function gtmEvent(eventName, eventData = {}) {
-  if (window.dataLayer) {
-    window.dataLayer.push({
-      event: eventName,
-      ...eventData
-    });
-  }
+  if (window.dataLayer) window.dataLayer.push({ event: eventName, ...eventData });
 }
 
 document.querySelectorAll('.work-card .btn-primary').forEach(btn => {
   btn.addEventListener('click', function() {
     const card = this.closest('.work-card');
-    const serviceName = card?.querySelector('h3')?.textContent || 'Unknown';
-    gtmEvent('service_click', { service_name: serviceName });
+    gtmEvent('service_click', { service_name: card?.querySelector('h3')?.textContent || 'Unknown' });
   });
 });
 
@@ -202,7 +165,11 @@ document.querySelectorAll('.header-socials a, .contact-item a').forEach(link => 
 });
 
 document.querySelector('.hero-right .btn-primary')?.addEventListener('click', function() {
-  gtmEvent('cta_click', { button: 'pidibraty_grant' });
+  gtmEvent('cta_click', { button: 'pereviryty_grant' });
+});
+
+document.querySelector('.approach-block .btn-primary')?.addEventListener('click', function() {
+  gtmEvent('cta_click', { button: 'nadislaty_anketu_about' });
 });
 
 // ===== TELEGRAM BOT + GOOGLE SHEETS =====
@@ -218,8 +185,8 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
   
   this.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
   
-  const requiredTexts = this.querySelectorAll('input[required], textarea[required]');
-  requiredTexts.forEach(input => {
+  // Текстові обов'язкові
+  this.querySelectorAll('input[required], textarea[required]').forEach(input => {
     if (!input.value.trim()) {
       input.classList.add('error');
       isValid = false;
@@ -227,10 +194,10 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
     }
   });
   
-  const requiredRadios = ['stage', 'status', 'age', 'region', 'amount', 'service'];
+  // Radio-групи обов'язкові
+  const requiredRadios = ['stage', 'age', 'location_status', 'amount', 'jobs', 'prev_grant', 'debt'];
   requiredRadios.forEach(name => {
-    const checked = this.querySelector(`input[name="${name}"]:checked`);
-    if (!checked) {
+    if (!this.querySelector(`input[name="${name}"]:checked`)) {
       const group = this.querySelector(`input[name="${name}"]`)?.closest('.radio-group');
       if (group) {
         group.classList.add('error');
@@ -240,25 +207,18 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
     }
   });
   
-  const sectorChecked = this.querySelectorAll('input[name="sector[]"]:checked').length;
-  if (sectorChecked === 0) {
-    const group = this.querySelector('input[name="sector[]"]')?.closest('.checkbox-group');
-    if (group) {
-      group.classList.add('error');
-      if (!firstError) firstError = group;
+  // Checkbox-групи обов'язкові
+  const requiredCheckboxes = ['expenses[]', 'help[]'];
+  requiredCheckboxes.forEach(name => {
+    if (this.querySelectorAll(`input[name="${name}"]:checked`).length === 0) {
+      const group = this.querySelector(`input[name="${name}"]`)?.closest('.checkbox-group');
+      if (group) {
+        group.classList.add('error');
+        if (!firstError) firstError = group;
+      }
+      isValid = false;
     }
-    isValid = false;
-  }
-  
-  const expensesChecked = this.querySelectorAll('input[name="expenses[]"]:checked').length;
-  if (expensesChecked === 0) {
-    const group = this.querySelector('input[name="expenses[]"]')?.closest('.checkbox-group');
-    if (group) {
-      group.classList.add('error');
-      if (!firstError) firstError = group;
-    }
-    isValid = false;
-  }
+  });
   
   if (!isValid) {
     alert('❌ Будь ласка, заповніть усі обов\'язкові поля (позначені *)');
@@ -271,43 +231,48 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
   
   data['Ім\'я'] = formData.get('name');
   data['Телефон'] = formData.get('phone');
-  data['Email'] = formData.get('email') || '—';
+  data['Email'] = formData.get('email');
   data['Етап бізнесу'] = formData.get('stage');
-  data['Про бізнес'] = formData.get('business');
-  data['Статус'] = formData.get('status');
-  data['Вік ФОП'] = formData.get('fop_age') || '—';
+  data['Вид діяльності'] = formData.get('business');
+  data['КВЕД'] = formData.get('kved') || '—';
   data['Вік'] = formData.get('age');
   data['Регіон'] = formData.get('region');
-  data['Сума'] = formData.get('amount');
-  data['Послуга'] = formData.get('service');
+  data['Населений пункт'] = formData.get('city');
+  data['Статус локації'] = formData.get('location_status');
+  data['Сума гранту'] = formData.get('amount');
+  data['Робочі місця'] = formData.get('jobs');
+  data['Попередній грант'] = formData.get('prev_grant');
+  data['Заборгованість'] = formData.get('debt');
   
-  const special = formData.getAll('special[]').filter(v => v !== 'Нічого з переліченого');
+  const special = formData.getAll('special[]');
   const specialOther = formData.get('special_other');
-  data['Особливий статус'] = special.length ? special.join(', ') + (specialOther ? ` (${specialOther})` : '') : 'Нічого з переліченого';
-  
-  const sector = formData.getAll('sector[]');
-  const sectorOther = formData.get('sector_other');
-  data['Сектор'] = sector.join(', ') + (sectorOther ? ` (${sectorOther})` : '');
+  data['Особливий статус'] = special.length ? special.join(', ') + (specialOther ? ` (${specialOther})` : '') : '—';
   
   const expenses = formData.getAll('expenses[]');
   const expensesOther = formData.get('expenses_other');
   data['Витрати'] = expenses.join(', ') + (expensesOther ? ` (${expensesOther})` : '');
   
-  let text = '📩 НОВА ЗАЯВКА НА СПІВПРАЦЮ\n\n';
+  const help = formData.getAll('help[]');
+  data['Допомога'] = help.join(', ');
+  
+  let text = '📩 НОВА АНКЕТА\n\n';
   text += `👤 Ім'я: ${data['Ім\'я']}\n`;
   text += `📞 Телефон: ${data['Телефон']}\n`;
   text += `📧 Email: ${data['Email']}\n\n`;
   text += `📊 Етап бізнесу: ${data['Етап бізнесу']}\n`;
-  text += `💼 Статус: ${data['Статус']}\n`;
-  text += `📅 Вік ФОП: ${data['Вік ФОП']}\n`;
+  text += `💼 Вид діяльності: ${data['Вид діяльності']}\n`;
+  text += `🔢 КВЕД: ${data['КВЕД']}\n`;
   text += `🎂 Вік: ${data['Вік']}\n\n`;
-  text += `📍 Регіон: ${data['Регіон']}\n`;
-  text += `🎯 Сектор: ${data['Сектор']}\n\n`;
-  text += `💰 Сума: ${data['Сума']}\n`;
-  text += `💸 Витрати: ${data['Витрати']}\n`;
+  text += `📍 Область: ${data['Регіон']}\n`;
+  text += `🏘 Населений пункт: ${data['Населений пункт']}\n`;
+  text += `📍 Статус локації: ${data['Статус локації']}\n\n`;
+  text += `💰 Сума гранту: ${data['Сума гранту']}\n`;
+  text += `👥 Робочі місця: ${data['Робочі місця']}\n`;
+  text += `📜 Попередній грант: ${data['Попередній грант']}\n`;
+  text += `💳 Заборгованість: ${data['Заборгованість']}\n\n`;
   text += `⭐ Особливий статус: ${data['Особливий статус']}\n\n`;
-  text += `🛠 Послуга: ${data['Послуга']}\n\n`;
-  text += `📝 Про бізнес:\n${data['Про бізнес']}`;
+  text += `💸 Витрати: ${data['Витрати']}\n\n`;
+  text += `🛠 Допомога: ${data['Допомога']}`;
   
   try {
     const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
@@ -332,7 +297,7 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
       
       gtmEvent('form_submit_success', { form_name: 'anketa' });
       
-      alert('✅ Дякую! Ваша заявка надіслана. Я зв\'яжуся з вами найближчим часом!');
+      alert('Дякую! Я отримала вашу анкету. Перегляну надану інформацію та зв\'яжуся з вами, щоб узгодити час консультації.');
       this.reset();
     } else {
       alert('❌ Сталася помилка. Спробуйте ще раз або напишіть мені в Telegram.');
