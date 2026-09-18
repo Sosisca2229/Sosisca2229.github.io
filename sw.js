@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const CACHE_NAME = 'viktoria-portfolio-v4';
+=======
+const CACHE_NAME = 'viktoria-portfolio-v2';
+>>>>>>> cb23d20af57414ce7def97e999766c64799cdea2
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
@@ -37,4 +41,4 @@ self.addEventListener('fetch', (event) => {
       response || fetch(event.request)
     )
   );
-});
+});});
