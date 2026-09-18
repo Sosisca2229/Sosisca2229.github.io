@@ -305,4 +305,4 @@ document.getElementById('anketaForm')?.addEventListener('submit', async function
   } catch (error) {
     alert('❌ Помилка з\'єднання. Перевірте інтернет.');
   }
-});});
+});
