@@ -1138,3 +1138,217 @@ body.dark-mode .approach-desc {
     font-size: 0.95rem;
   }
 }
+
+/* ===== ЧИ Є ІДЕЯ ДЛЯ БІЗНЕСУ? ===== */
+#idea {
+  background: #f9f1eb;
+  padding: 80px 0;
+}
+
+.idea-block {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.idea-title {
+  font-size: 2.4rem;
+  color: #3f322b;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #3f322b, #b17a6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.idea-subtitle {
+  font-size: 1.3rem;
+  color: #4a6fa5;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.idea-block .btn-primary {
+  margin-bottom: 40px;
+}
+
+.idea-desc {
+  font-size: 1.05rem;
+  color: #3f322b;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.idea-list-title {
+  font-size: 1.2rem;
+  color: #3f322b;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.idea-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+}
+
+.idea-list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 0.95rem;
+  color: #3f322b;
+  line-height: 1.5;
+}
+
+.idea-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #4a6fa5;
+  font-weight: 600;
+}
+
+body.dark-mode #idea { background: #1f1815; }
+body.dark-mode .idea-title {
+  background: linear-gradient(135deg, #f0e6e0, #dac2b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+body.dark-mode .idea-subtitle { color: #7da3d9; }
+body.dark-mode .idea-desc { color: #d4c8c0; }
+body.dark-mode .idea-list-title { color: #f0e6e0; }
+body.dark-mode .idea-list li { color: #d4c8c0; }
+body.dark-mode .idea-list li::before { color: #7da3d9; }
+
+/* ===== HERO — UPPERCASE заголовок ===== */
+.hero-title {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 2.2rem;
+}
+
+/* ===== HERO — фото менше на мобільному ===== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.4rem;
+    letter-spacing: 0.3px;
+  }
+  
+  .hero-grid {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .hero-left {
+    flex: 0 0 auto;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  .hero-left img {
+    max-width: 280px;
+    animation: none; /* вимикаємо анімацію float на мобільному */
+  }
+  
+  .hero-right {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  
+  .hero-desc {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-right .btn-primary {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  #hero {
+    padding-top: 120px;
+    padding-bottom: 40px;
+  }
+}
+
+/* ===== Оновлений логотип (як h2) ===== */
+.logo-name {
+  background: linear-gradient(135deg, #3f322b, #b17a6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.logo-name span {
+  background: linear-gradient(135deg, #3f322b, #b17a6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+body.dark-mode .logo-name,
+body.dark-mode .logo-name span {
+  background: linear-gradient(135deg, #f0e6e0, #dac2b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== "Ваша ідея — моя експертиза" ===== */
+.approach-block {
+  max-width: 700px;
+  margin: 60px auto 0;
+  text-align: center;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #fffbf9 0%, #f0e8ff 100%);
+  border-radius: 30px;
+  box-shadow: 0 10px 40px rgba(74, 111, 165, 0.1);
+  border: 2px solid #7da3d9;
+}
+
+.approach-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #3f322b, #b17a6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.dark-mode .approach-block {
+  background: linear-gradient(135deg, #2a221f 0%, #1e2a4a 100%);
+  border-color: #5a82c2;
+}
+
+body.dark-mode .approach-title {
+  background: linear-gradient(135deg, #f0e6e0, #dac2b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (max-width: 768px) {
+  .idea-title { font-size: 1.7rem; }
+  .idea-subtitle { font-size: 1rem; }
+  .idea-list { grid-template-columns: 1fr; }
+  .approach-block { padding: 30px 20px; margin-top: 40px; }
+  .approach-title { font-size: 1.4rem; }
+}
