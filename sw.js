@@ -1,4 +1,4 @@
-const CACHE_NAME = 'viktoria-portfolio-v4';
+const CACHE_NAME = 'viktoria-portfolio-v6';
 const URLS_TO_CACHE = [
   '/',
   '/index.html',
@@ -20,7 +20,7 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((names) => 
+    caches.keys().then((names) =>
       Promise.all(
         names.map((name) => {
           if (name !== CACHE_NAME) return caches.delete(name);
@@ -33,7 +33,7 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => 
+    caches.match(event.request).then((response) =>
       response || fetch(event.request)
     )
   );

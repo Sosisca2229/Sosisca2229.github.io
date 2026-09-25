@@ -5,12 +5,31 @@
   box-sizing: border-box;
 }
 
+html {
+  background: #fcf7f2;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+html:has(body.dark-mode) {
+  background: #1a1412;
+}
+
 body {
   background-color: #fcf7f2;
   color: #4a3f3a;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   transition: background 0.3s, color 0.3s;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.dark-mode {
+  background: #1a1412;
+  color: #f0e6e0;
 }
 
 h1, h2, h3 {
@@ -290,7 +309,7 @@ section {
 }
 .hero-right { flex: 1 1 400px; }
 .hero-title {
-  font-size: 2.4rem;
+  font-size: 2.2rem;
   color: #7da3d9;
   margin-bottom: 24px;
   line-height: 1.15;
@@ -299,12 +318,14 @@ section {
   text-align: left;
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 .hero-desc {
   font-size: 1.15rem;
   max-width: 520px;
   color: #3f322b;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   line-height: 1.6;
 }
 
@@ -343,9 +364,95 @@ body.dark-mode .hero-desc { color: #d4c8c0; }
 body.dark-mode .btn-primary { background: #5a82c2; color: #ffffff; }
 body.dark-mode .btn-primary:hover { background: #4a6fa5; }
 
+/* ===== ЧИ Є ІДЕЯ ДЛЯ БІЗНЕСУ? ===== */
+#idea {
+  background: #f9f1eb;
+  padding: 80px 0;
+  transition: background 0.3s;
+}
+.idea-block {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.idea-title {
+  font-size: 2.4rem;
+  color: #3f322b;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #3f322b, #b17a6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.idea-subtitle {
+  font-size: 1.3rem;
+  color: #4a6fa5;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.idea-block .btn-primary { margin-bottom: 40px; }
+.idea-desc {
+  font-size: 1.05rem;
+  color: #3f322b;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.idea-list-title {
+  font-size: 1.2rem;
+  color: #3f322b;
+  font-weight: 600;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.idea-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+}
+.idea-list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 0.95rem;
+  color: #3f322b;
+  line-height: 1.5;
+}
+.idea-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #4a6fa5;
+  font-weight: 600;
+}
+body.dark-mode #idea { background: #1f1815; }
+body.dark-mode .idea-title {
+  background: linear-gradient(135deg, #f0e6e0, #dac2b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+body.dark-mode .idea-subtitle { color: #7da3d9; }
+body.dark-mode .idea-desc { color: #d4c8c0; }
+body.dark-mode .idea-list-title { color: #f0e6e0; }
+body.dark-mode .idea-list li { color: #d4c8c0; }
+body.dark-mode .idea-list li::before { color: #7da3d9; }
+
 /* ---------- ABOUT ---------- */
 #about {
-  background: #f9f1eb;
+  background: #fcf7f2;
   transition: background 0.3s;
 }
 .about-grid {
@@ -439,14 +546,46 @@ body.dark-mode .btn-primary:hover { background: #4a6fa5; }
   line-height: 1.5;
 }
 
-body.dark-mode #about { background: #1f1815; }
+body.dark-mode #about { background: #1a1412; }
 body.dark-mode .feature-card { background: #2a221f; }
 body.dark-mode .feature-card h3 { color: #f0e6e0; }
 body.dark-mode .feature-card p { color: #d4c8c0; }
 
+/* ===== "Ваша ідея — моя експертиза" ===== */
+.approach-block {
+  max-width: 700px;
+  margin: 60px auto 0;
+  text-align: center;
+  padding: 40px 30px;
+  background: linear-gradient(135deg, #fffbf9 0%, #f0e8ff 100%);
+  border-radius: 30px;
+  box-shadow: 0 10px 40px rgba(74, 111, 165, 0.1);
+  border: 2px solid #7da3d9;
+}
+.approach-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, #3f322b, #b17a6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+body.dark-mode .approach-block {
+  background: linear-gradient(135deg, #2a221f 0%, #1e2a4a 100%);
+  border-color: #5a82c2;
+}
+body.dark-mode .approach-title {
+  background: linear-gradient(135deg, #f0e6e0, #dac2b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 /* ---------- WORKS ---------- */
 #works {
-  background: #fcf7f2;
+  background: #f9f1eb;
   transition: background 0.3s;
 }
 .filter-buttons {
@@ -569,7 +708,7 @@ body.dark-mode .feature-card p { color: #d4c8c0; }
   text-transform: uppercase;
 }
 
-body.dark-mode #works { background: #1a1412; }
+body.dark-mode #works { background: #1f1815; }
 body.dark-mode .work-card { background: #2a221f; }
 body.dark-mode .work-card h3 { color: #f0e6e0; }
 body.dark-mode .work-price { color: #7da3d9; border-bottom-color: #3a2a24; }
@@ -592,7 +731,7 @@ body.dark-mode .badge-featured {
 
 /* ---------- FAQ ---------- */
 #faq {
-  background: #f9f1eb;
+  background: #fcf7f2;
   transition: background 0.3s;
 }
 .faq-list { max-width: 900px; margin: 40px auto 0; }
@@ -622,7 +761,7 @@ body.dark-mode .badge-featured {
 .faq-answer li { margin-bottom: 6px; }
 .faq-answer a { color: #4a6fa5; text-decoration: underline; }
 
-body.dark-mode #faq { background: #1f1815; }
+body.dark-mode #faq { background: #1a1412; }
 body.dark-mode .faq-question { color: #f0e6e0; }
 body.dark-mode .faq-question:hover { color: #7da3d9; }
 body.dark-mode .faq-answer { color: #d4c8c0; }
@@ -630,7 +769,7 @@ body.dark-mode .faq-item { border-bottom-color: #3a2a24; }
 
 /* ---------- ANKETA ---------- */
 #anketa {
-  background: #fcf7f2;
+  background: #f9f1eb;
   transition: background 0.3s;
 }
 .anketa-form { max-width: 900px; margin: 40px auto 0; }
@@ -716,6 +855,34 @@ body.dark-mode .faq-item { border-bottom-color: #3a2a24; }
   cursor: pointer;
   flex-shrink: 0;
 }
+
+/* ===== "Інше:" поле ===== */
+.other-input {
+  width: 100%;
+  padding: 10px 18px;
+  border: 1px solid #e8dbd3;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  background: #fcf7f2;
+  font-family: 'Inter', sans-serif;
+  color: #4a3f3a;
+  transition: border 0.2s, box-shadow 0.2s;
+  margin-left: 28px;
+  margin-top: -4px;
+  margin-bottom: 4px;
+  max-width: calc(100% - 28px);
+}
+.other-input:focus {
+  outline: none;
+  border-color: #4a6fa5;
+  box-shadow: 0 0 0 3px rgba(74, 111, 165, 0.1);
+}
+body.dark-mode .other-input {
+  background: #1f1815;
+  border-color: #3a2a24;
+  color: #f0e6e0;
+}
+
 .sub-question {
   margin-top: 16px;
   margin-bottom: 8px;
@@ -802,7 +969,6 @@ body.dark-mode .contact-item svg { color: #7da3d9; }
 .back-to-top:hover { background: #3d5d8f; transform: translateY(-3px); }
 
 /* ---------- DARK MODE (загальне) ---------- */
-body.dark-mode { background: #1a1412; color: #f0e6e0; }
 body.dark-mode #preloader { background: #1a1412; }
 body.dark-mode header {
   background: rgba(26, 20, 18, 0.95);
@@ -871,11 +1037,7 @@ img {
   gap: 10px;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.sticky-cta:active {
-  transform: scale(0.97);
-}
-
+.sticky-cta:active { transform: scale(0.97); }
 body.dark-mode .sticky-cta {
   background: #5a82c2;
   box-shadow: 0 8px 30px rgba(90, 130, 194, 0.4);
@@ -892,23 +1054,19 @@ body.dark-mode .sticky-cta {
 
 @media (max-width: 768px) {
   h2 { font-size: 2rem; }
-  .hero-title { font-size: 1.6rem; }
   .hero-desc { font-size: 1rem; }
-  
+
   header { padding: 16px 0; }
-  
-  .header-inner { 
-    flex-direction: row; 
+
+  .header-inner {
+    flex-direction: row;
     flex-wrap: wrap;
-    align-items: center; 
+    align-items: center;
     gap: 12px;
   }
-  
-  .burger-menu {
-    display: block;
-    order: 3;
-  }
-  
+
+  .burger-menu { display: block; order: 3; }
+
   .nav-menu {
     display: none;
     flex-direction: column;
@@ -920,435 +1078,58 @@ body.dark-mode .sticky-cta {
     font-size: 1.1rem;
   }
   .nav-menu.open { display: flex; }
-  
+
   .header-socials {
     order: 2;
     margin-left: auto;
     gap: 14px;
   }
-  
+
   .about-slider { flex: 1 1 100%; }
   .slides img { height: 280px; }
   .form-row { grid-template-columns: 1fr; }
   .anketa-block { padding: 24px 20px; }
   .btn-large { padding: 14px 24px; font-size: 1rem; }
   .work-card.featured { transform: scale(1); }
-  
+
   .logo-name { font-size: 1.4rem; }
   .logo-sub { font-size: 0.85rem; letter-spacing: 1.5px; margin-top: 4px; }
-  
-  #hero { padding-top: 140px; }
-  
-  /* Sticky CTA — показуємо на мобільних */
-  .sticky-cta {
-    display: flex;
-  }
-  .back-to-top {
-    bottom: 100px;
-  }
-  body {
-    padding-bottom: 80px;
-  }
-}
 
-/* ===== ABOUT INTRO — "Вам варто звернутися" ===== */
-.about-intro {
-  max-width: 800px;
-  margin: 0 auto 50px;
-  background: #fffbf9;
-  padding: 32px 40px;
-  border-radius: 24px;
-  box-shadow: 0 6px 20px rgba(150, 110, 90, 0.06);
-  border-left: 4px solid #4a6fa5;
-}
+  #hero { padding-top: 120px; padding-bottom: 40px; }
 
-.about-intro-title {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #3f322b;
-  margin-bottom: 16px;
-  font-family: 'Inter', sans-serif;
-}
+  .sticky-cta { display: flex; }
+  .back-to-top { bottom: 100px; }
+  body { padding-bottom: 80px; }
 
-.about-intro-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 20px;
-}
-
-.about-intro-list li {
-  position: relative;
-  padding-left: 26px;
-  margin-bottom: 10px;
-  font-size: 0.98rem;
-  color: #3f322b;
-  line-height: 1.5;
-}
-
-.about-intro-list li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: #4a6fa5;
-  font-weight: 600;
-}
-
-.about-intro-footer {
-  font-size: 1rem;
-  color: #4a6fa5;
-  font-weight: 500;
-  font-style: italic;
-  padding-top: 12px;
-  border-top: 1px solid #efe3db;
-}
-
-body.dark-mode .about-intro {
-  background: #2a221f;
-  border-left-color: #5a82c2;
-}
-
-body.dark-mode .about-intro-title {
-  color: #f0e6e0;
-}
-
-body.dark-mode .about-intro-list li {
-  color: #d4c8c0;
-}
-
-body.dark-mode .about-intro-list li::before {
-  color: #7da3d9;
-}
-
-body.dark-mode .about-intro-footer {
-  color: #7da3d9;
-  border-top-color: #3a2a24;
-}
-
-@media (max-width: 768px) {
-  .about-intro {
-    padding: 24px 20px;
-  }
-  .about-intro-title {
-    font-size: 1.05rem;
-  }
-  .about-intro-list li {
-    font-size: 0.92rem;
-  }
-}
-
-/* ===== HERO — UPPERCASE заголовок ===== */
-.hero-title {
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 2.2rem;
-}
-
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 1.5rem;
-    letter-spacing: 0.3px;
-  }
-}
-
-/* ===== МІЙ ПІДХІД ===== */
-.approach-block {
-  max-width: 900px;
-  margin: 60px auto 0;
-  text-align: center;
-  padding: 40px 30px;
-  background: linear-gradient(135deg, #fffbf9 0%, #f0e8ff 100%);
-  border-radius: 30px;
-  box-shadow: 0 10px 40px rgba(74, 111, 165, 0.1);
-  border: 2px solid #7da3d9;
-}
-
-.approach-title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #3f322b;
-  margin-bottom: 20px;
-  background: linear-gradient(135deg, #3f322b, #b17a6e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.approach-steps {
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #4a6fa5;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-  padding: 16px 20px;
-  background: rgba(74, 111, 165, 0.08);
-  border-radius: 12px;
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.approach-desc {
-  font-size: 1rem;
-  color: #3f322b;
-  max-width: 700px;
-  margin: 0 auto 30px;
-  line-height: 1.6;
-}
-
-.approach-block .btn-primary {
-  display: inline-block;
-}
-
-body.dark-mode .approach-block {
-  background: linear-gradient(135deg, #2a221f 0%, #1e2a4a 100%);
-  border-color: #5a82c2;
-}
-
-body.dark-mode .approach-title {
-  background: linear-gradient(135deg, #f0e6e0, #dac2b6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-body.dark-mode .approach-steps {
-  color: #7da3d9;
-  background: rgba(125, 163, 217, 0.12);
-}
-
-body.dark-mode .approach-desc {
-  color: #d4c8c0;
-}
-
-@media (max-width: 768px) {
-  .approach-block {
-    padding: 30px 20px;
-    margin-top: 40px;
-  }
-  .approach-title {
-    font-size: 1.4rem;
-  }
-  .approach-steps {
-    font-size: 0.95rem;
-    white-space: normal;
-    letter-spacing: 0.5px;
-    padding: 12px 14px;
-  }
-  .approach-desc {
-    font-size: 0.95rem;
-  }
-}
-
-/* ===== ЧИ Є ІДЕЯ ДЛЯ БІЗНЕСУ? ===== */
-#idea {
-  background: #f9f1eb;
-  padding: 80px 0;
-}
-
-.idea-block {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.idea-title {
-  font-size: 2.4rem;
-  color: #3f322b;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  background: linear-gradient(135deg, #3f322b, #b17a6e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.idea-subtitle {
-  font-size: 1.3rem;
-  color: #4a6fa5;
-  font-weight: 500;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.idea-block .btn-primary {
-  margin-bottom: 40px;
-}
-
-.idea-desc {
-  font-size: 1.05rem;
-  color: #3f322b;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  max-width: 750px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.idea-list-title {
-  font-size: 1.2rem;
-  color: #3f322b;
-  font-weight: 600;
-  margin-bottom: 20px;
-  font-family: 'Inter', sans-serif;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.idea-list {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-  max-width: 700px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px 24px;
-}
-
-.idea-list li {
-  position: relative;
-  padding-left: 26px;
-  font-size: 0.95rem;
-  color: #3f322b;
-  line-height: 1.5;
-}
-
-.idea-list li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: #4a6fa5;
-  font-weight: 600;
-}
-
-body.dark-mode #idea { background: #1f1815; }
-body.dark-mode .idea-title {
-  background: linear-gradient(135deg, #f0e6e0, #dac2b6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-body.dark-mode .idea-subtitle { color: #7da3d9; }
-body.dark-mode .idea-desc { color: #d4c8c0; }
-body.dark-mode .idea-list-title { color: #f0e6e0; }
-body.dark-mode .idea-list li { color: #d4c8c0; }
-body.dark-mode .idea-list li::before { color: #7da3d9; }
-
-/* ===== HERO — UPPERCASE заголовок ===== */
-.hero-title {
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 2.2rem;
-}
-
-/* ===== HERO — фото менше на мобільному ===== */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 1.4rem;
-    letter-spacing: 0.3px;
-  }
-  
-  .hero-grid {
-    flex-direction: column;
-    gap: 24px;
-  }
-  
-  .hero-left {
-    flex: 0 0 auto;
-    max-width: 280px;
-    margin: 0 auto;
-  }
-  
-  .hero-left img {
-    max-width: 280px;
-    animation: none; /* вимикаємо анімацію float на мобільному */
-  }
-  
-  .hero-right {
-    flex: 1 1 auto;
-    text-align: center;
-  }
-  
+  /* Hero — фото менше, текст одразу */
+  .hero-grid { flex-direction: column; gap: 24px; }
+  .hero-left { flex: 0 0 auto; max-width: 280px; margin: 0 auto; }
+  .hero-left img { max-width: 280px; animation: none; }
+  .hero-right { flex: 1 1 auto; text-align: center; }
+  .hero-title { font-size: 1.4rem; letter-spacing: 0.3px; }
   .hero-desc {
     text-align: left;
     margin-left: auto;
     margin-right: auto;
   }
-  
   .hero-right .btn-primary {
     display: block;
     width: 100%;
     text-align: center;
   }
-  
-  #hero {
-    padding-top: 120px;
-    padding-bottom: 40px;
-  }
-}
 
-/* ===== Оновлений логотип (як h2) ===== */
-.logo-name {
-  background: linear-gradient(135deg, #3f322b, #b17a6e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.logo-name span {
-  background: linear-gradient(135deg, #3f322b, #b17a6e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-body.dark-mode .logo-name,
-body.dark-mode .logo-name span {
-  background: linear-gradient(135deg, #f0e6e0, #dac2b6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ===== "Ваша ідея — моя експертиза" ===== */
-.approach-block {
-  max-width: 700px;
-  margin: 60px auto 0;
-  text-align: center;
-  padding: 40px 30px;
-  background: linear-gradient(135deg, #fffbf9 0%, #f0e8ff 100%);
-  border-radius: 30px;
-  box-shadow: 0 10px 40px rgba(74, 111, 165, 0.1);
-  border: 2px solid #7da3d9;
-}
-
-.approach-title {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 24px;
-  background: linear-gradient(135deg, #3f322b, #b17a6e);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-body.dark-mode .approach-block {
-  background: linear-gradient(135deg, #2a221f 0%, #1e2a4a 100%);
-  border-color: #5a82c2;
-}
-
-body.dark-mode .approach-title {
-  background: linear-gradient(135deg, #f0e6e0, #dac2b6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-@media (max-width: 768px) {
+  /* Ідея */
   .idea-title { font-size: 1.7rem; }
   .idea-subtitle { font-size: 1rem; }
   .idea-list { grid-template-columns: 1fr; }
+
+  /* Підхід */
   .approach-block { padding: 30px 20px; margin-top: 40px; }
   .approach-title { font-size: 1.4rem; }
+
+  /* Інше поле — на всю ширину */
+  .other-input {
+    margin-left: 0;
+    max-width: 100%;
+  }
 }
