@@ -102,8 +102,8 @@ document.querySelectorAll('.header-socials a, .contact-item a').forEach(l => l.a
   gtmEvent('contact_click', { contact_type: t });
 }));
 
-const BOT_TOKEN = '8637962406:AAFVmEMXur_eGh8aXuMxkLsxPQ-5R3maiqE';
-const CHAT_ID = '6469987816';
+const BOT_TOKEN = '8859311739:AAEzpdSgYkvDJswpZSb-lDNeJmWHmZA1q3k';
+const CHAT_ID = '7310749331';
 const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzKcldPw_DTv4sIsyt1pxVsXXycrXsbmOgwcvWT27sLphY28XXgXMr8r2EqRMH4Z2MG/exec';
 
 document.getElementById('anketaForm')?.addEventListener('submit', async function(e) {
