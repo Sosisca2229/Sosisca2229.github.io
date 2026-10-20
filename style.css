@@ -1095,7 +1095,9 @@ body.dark-mode .sticky-cta {
   .logo-name { font-size: 1.4rem; }
   .logo-sub { font-size: 0.85rem; letter-spacing: 1.5px; margin-top: 4px; }
 
+  /* Виправлення відступу для мобільної версії */
   #hero { padding-top: 120px; padding-bottom: 40px; }
+  #anketa { padding-top: 60px; } 
 
   .sticky-cta { display: flex; }
   .back-to-top { bottom: 100px; }
@@ -1106,7 +1108,7 @@ body.dark-mode .sticky-cta {
   .hero-left { flex: 0 0 auto; max-width: 280px; margin: 0 auto; }
   .hero-left img { max-width: 280px; animation: none; }
   .hero-right { flex: 1 1 auto; text-align: center; }
-  .hero-title { font-size: 1.4rem; letter-spacing: 0.3px; }
+  .hero-title { font-size: 1.4rem; letter-spacing: 0.3px; margin-bottom: 12px; }
   .hero-desc {
     text-align: left;
     margin-left: auto;
